@@ -54,5 +54,6 @@
   },
   "dependencies": {
     "@testing-library/react": "^16.0.1"
-  }
+  },
+  "version": "1.0.0"
 }
