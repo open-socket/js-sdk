@@ -1,9 +1,6 @@
 {
   "name": "@open-socket/js",
   "private": false,
-  "publishConfig": {
-    "access": "public"
-  },
   "scripts": {
     "lint": "eslint .",
     "test": "lerna run test",
@@ -59,5 +56,5 @@
   "dependencies": {
     "@testing-library/react": "^16.0.1"
   },
-  "version": "1.1.0"
+  "version": "1.2.0"
 }

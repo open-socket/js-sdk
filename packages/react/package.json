@@ -1,6 +1,10 @@
 {
   "name": "@open-socket/react",
   "version": "0.0.1",
+  "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "scripts": {
