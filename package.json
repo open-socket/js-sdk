@@ -1,6 +1,6 @@
 {
   "name": "@open-socket/js",
-  "private": true,
+  "private": false,
   "scripts": {
     "lint": "eslint .",
     "test": "lerna run test",
