@@ -1,3 +1,16 @@
+# [1.5.0](https://github.com/open-socket/js-sdk/compare/v1.4.0...v1.5.0) (2024-10-26)
+
+
+### Bug Fixes
+
+* linting is fixed ([f531955](https://github.com/open-socket/js-sdk/commit/f531955731f979e682d070799983b399ea2393d7))
+* updated jest types, added few test in core-js ([dce0a18](https://github.com/open-socket/js-sdk/commit/dce0a183d861e19d9f2d128aa1e342e6bb636d9d))
+
+
+### Features
+
+* setting up core-js ([d0baef6](https://github.com/open-socket/js-sdk/commit/d0baef6fc35d21b45b18f02c2ad385d000c8b72f))
+
 # [1.3.0](https://github.com/open-socket/js-sdk/compare/v1.2.0...v1.3.0) (2024-10-18)
 
 
