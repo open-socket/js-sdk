@@ -7,7 +7,7 @@
     "format": "prettier --write .",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
     "build": "lerna run build",
-    "release": "lerna run release"
+    "release": "lerna run release && semantic-release"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.25.8",
