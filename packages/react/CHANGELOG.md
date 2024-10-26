@@ -1,3 +1,10 @@
+## [1.5.1](https://github.com/open-socket/js-sdk/compare/v1.5.0...v1.5.1) (2024-10-26)
+
+
+### Bug Fixes
+
+* testing build ([f1b0772](https://github.com/open-socket/js-sdk/commit/f1b07725b1b8b15193c11152f160848d7100e0a7))
+
 # [1.5.0](https://github.com/open-socket/js-sdk/compare/v1.4.0...v1.5.0) (2024-10-26)
 
 
