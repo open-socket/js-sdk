@@ -9,23 +9,24 @@ export class NoOpProvider implements ProviderInterface {
     console.warn('NoOpProvider: disconnect() called');
   }
 
-  async sendMessage(channel: string, message: any) {
+  async sendMessage(channel: string, message: string) {
     console.warn(
       `NoOpProvider: sendMessage() called for channel: ${channel}`,
       message,
     );
   }
 
-  subscribe(channel: string, callback: (message: any) => void) {
+  subscribe(channel: string, callback: (message: string) => void) {
     console.warn(`NoOpProvider: subscribe() called for channel: ${channel}`);
+    callback('NoOpProvider: subscribe() called');
   }
 
   unsubscribe(channel: string) {
     console.warn(`NoOpProvider: unsubscribe() called for channel: ${channel}`);
   }
 
-  async presence(channel: string) {
+  presence(channel: string) {
     console.warn(`NoOpProvider: presence() called for channel: ${channel}`);
-    return {}; // Return empty presence data
+    return new Promise<string[]>((resolve) => resolve([]));
   }
 }

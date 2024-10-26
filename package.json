@@ -46,7 +46,8 @@
     ]
   },
   "workspaces": [
-    "packages/react"
+    "packages/react",
+    "packages/core"
   ],
   "config": {
     "commitizen": {

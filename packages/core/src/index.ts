@@ -26,11 +26,11 @@ class OpenSocket {
     await this.provider.disconnect();
   }
 
-  async sendMessage(channel: string, message: any) {
+  async sendMessage(channel: string, message: string) {
     await this.provider.sendMessage(channel, message);
   }
 
-  subscribe(channel: string, callback: (message: any) => void) {
+  subscribe(channel: string, callback: (message: string) => void) {
     this.provider.subscribe(channel, callback);
   }
 
