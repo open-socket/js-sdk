@@ -1,0 +1,16 @@
+{
+  "presets": [
+    "@babel/preset-env", // Handles modern JavaScript
+    "@babel/preset-typescript" // Handles TS
+  ],
+  "env": {
+    // For CommonJS builds
+    "cjs": {
+      "presets": [["@babel/preset-env", { "modules": "commonjs" }]]
+    },
+    // For ES Module builds
+    "esm": {
+      "presets": [["@babel/preset-env", { "modules": false }]]
+    }
+  }
+}
