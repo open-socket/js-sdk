@@ -186,14 +186,19 @@ class OpenSocketCore {
       throw error;
     }
   }
-
+  /**
+   * Unsubscribes from a channel.
+   * @param channel - The channel to unsubscribe from.
+   * @throws Error if disconnection fails.
+   */
+  unsubscribe(channel: string): void;
   /**
    * Unsubscribes from a channel or event.
    * @param channel - The channel to unsubscribe from.
    * @param event - Optional event name.
    * @throws Error if disconnection fails.
    */
-  unsubscribe(channel: string): void;
+  unsubscribe(channel: string, event?: string): void;
   unsubscribe(channel: string, event?: string): void {
     if (!this.isConnected) {
       console.warn('OpenSocket: Not connected to the provider');
