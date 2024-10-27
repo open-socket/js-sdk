@@ -1,6 +1,8 @@
 import {
   ProviderInterface,
   Message,
+  MessageMetadata,
+  EventData,
   HistoryOptions,
   PresenceMember,
 } from './ProviderInterface';
@@ -45,24 +47,26 @@ export class NoOpProvider implements ProviderInterface {
 
   subscribe(
     channel: string,
-    callback: (message: string | object, metadata?: any) => void,
+    callback: (message: string | object, metadata?: MessageMetadata) => void,
   ): void;
   subscribe(
     channel: string,
     event: string,
-    callback: (message: string | object, metadata?: any) => void,
+    callback: (message: string | object, metadata?: MessageMetadata) => void,
   ): void;
   subscribe(
     channel: string,
-    arg2: any,
-    callback?: (message: string | object, metadata?: any) => void,
+    arg2:
+      | string
+      | ((message: string | object, metadata?: MessageMetadata) => void),
+    callback?: (message: string | object, metadata?: MessageMetadata) => void,
   ): void {
     if (typeof arg2 === 'string' && callback) {
       console.warn(
         `NoOpProvider: subscribe() called for channel: ${channel} with event: ${arg2}`,
       );
       callback('NoOpProvider: subscribe() called');
-    } else {
+    } else if (typeof arg2 === 'function') {
       console.warn(`NoOpProvider: subscribe() called for channel: ${channel}`);
       arg2('NoOpProvider: subscribe() called');
     }
@@ -114,8 +118,9 @@ export class NoOpProvider implements ProviderInterface {
     );
   }
 
-  on(event: string, callback: (data: any) => void): void {
+  on(event: string, callback: (data: EventData) => void): void {
     console.warn(`NoOpProvider: on() called for event: ${event}`);
+    callback({ NoOpProvider: 'on() called' });
   }
 
   off(event: string): void {
@@ -133,8 +138,9 @@ export class NoOpProvider implements ProviderInterface {
     return []; // Return an empty presence list
   }
 
-  onError?(callback: (error: any) => void): void {
+  onError?(callback: (error: Error) => void): void {
     console.warn(`NoOpProvider: onError() called`);
+    callback(new Error('NoOpProvider: onError() called'));
   }
 
   async reconnect?(): Promise<void> {

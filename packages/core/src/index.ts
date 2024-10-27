@@ -2,7 +2,7 @@ import {
   ProviderInterface,
   Message,
   HistoryOptions,
-  PresenceMember,
+  EventData,
 } from './ProviderInterface';
 import { NoOpProvider } from './NoOpProvider';
 
@@ -298,7 +298,7 @@ class OpenSocketCore {
    * @param event - The event name to listen for.
    * @param callback - The callback function to handle the event data.
    */
-  on(event: string, callback: (data: any) => void): void {
+  on(event: string, callback: (data: EventData) => void): void {
     if (this.provider.on) {
       this.provider.on(event, callback);
     } else {
@@ -322,7 +322,7 @@ class OpenSocketCore {
    * Sets custom data for the provider.
    * @param data - The custom data to set.
    */
-  setCustomData(data: any): void {
+  setCustomData(data: EventData): void {
     if (this.provider.setCustomData) {
       this.provider.setCustomData(data);
     } else {
@@ -346,7 +346,7 @@ class OpenSocketCore {
    * Sets an error handler callback, if supported by the provider.
    * @param callback - The callback function to handle errors.
    */
-  onError(callback: (error: any) => void) {
+  onError(callback: (error: Error) => void) {
     if (this.provider.onError) {
       this.provider.onError(callback);
     } else {

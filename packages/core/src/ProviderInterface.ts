@@ -45,7 +45,7 @@ export interface ProviderInterface {
    */
   subscribe(
     channel: string,
-    callback: (message: string | object, metadata?: any) => void,
+    callback: (message: string | object, metadata?: MessageMetadata) => void,
   ): void;
 
   /**
@@ -57,7 +57,7 @@ export interface ProviderInterface {
   subscribe(
     channel: string,
     event: string,
-    callback: (message: string | object, metadata?: any) => void,
+    callback: (message: string | object, metadata?: MessageMetadata) => void,
   ): void;
 
   /**
@@ -117,7 +117,7 @@ export interface ProviderInterface {
    * @param event - The event name to listen for.
    * @param callback - The callback function to handle the event data.
    */
-  on(event: string, callback: (data: any) => void): void;
+  on(event: string, callback: (data: EventData) => void): void;
 
   /**
    * Removes an event listener for a custom provider event.
@@ -129,7 +129,7 @@ export interface ProviderInterface {
    * Sets custom data for the provider, if supported.
    * @param data - The custom data object.
    */
-  setCustomData?(data: object): void;
+  setCustomData?(data: CustomData): void;
 
   /**
    * Retrieves the current presence in a channel, if supported.
@@ -142,7 +142,7 @@ export interface ProviderInterface {
    * Sets an error handler callback, if supported by the provider.
    * @param callback - The callback function to handle errors.
    */
-  onError?(callback: (error: any) => void): void;
+  onError?(callback: (error: Error) => void): void;
 
   /**
    * Reconnects to the provider, if supported.
@@ -151,14 +151,14 @@ export interface ProviderInterface {
   reconnect?(): Promise<void>;
 }
 
-// Types for message history and presence
+// Types for message history, presence, event data, and custom data
 export interface Message {
   /** Unique identifier for the message. */
   id: string;
   /** Timestamp for when the message was sent. */
   timestamp: number;
   /** The data content of the message. */
-  data: any;
+  data: string | object;
   /** The channel from which the message was sent. */
   channel: string;
   /** The event name associated with the message, if any. */
@@ -184,5 +184,22 @@ export interface PresenceMember {
   /** The user's status (e.g., online, offline). */
   status: string;
   /** Additional properties that may be set by the provider. */
-  [key: string]: any;
+  [key: string]: string | number | boolean; // Define more specific types if needed
+}
+
+// Define types for custom data and event data
+export interface CustomData {
+  [key: string]: string | number | boolean | object; // More specific as needed
+}
+
+export interface EventData {
+  [key: string]: string | number | boolean | object; // More specific as needed
+}
+
+// Define a new interface for message metadata
+export interface MessageMetadata {
+  timestamp?: number; // Optional timestamp for the message
+  userId?: string; // Optional user ID associated with the message
+  event?: string; // Optional event name associated with the message
+  [key: string]: string | number | boolean | undefined; // More specific types
 }
