@@ -1,3 +1,16 @@
+# [1.10.0](https://github.com/open-socket/js-sdk/compare/v1.9.0...v1.10.0) (2024-10-27)
+
+
+### Bug Fixes
+
+* linting is fixed ([9b48035](https://github.com/open-socket/js-sdk/commit/9b480356b8a7bf76308e019a2c9ea504f7364fe6))
+* unsubscribe ([408dd00](https://github.com/open-socket/js-sdk/commit/408dd00cc60afbf0f8ad956a993b6423365d6e51))
+
+
+### Features
+
+* expanded core ([fa5d4eb](https://github.com/open-socket/js-sdk/commit/fa5d4eb6b83d0a1de1c6b6ffaab0a2e801b073d3))
+
 # [1.9.0](https://github.com/open-socket/js-sdk/compare/v1.8.0...v1.9.0) (2024-10-27)
 
 
