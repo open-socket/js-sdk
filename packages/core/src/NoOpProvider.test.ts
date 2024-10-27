@@ -31,7 +31,9 @@ describe('NoOpProvider', () => {
     const consoleWarnSpy = jest.spyOn(console, 'warn');
     const channel = 'test-channel';
     const message = 'test-message';
-    await provider.sendMessage(channel, message);
+    const event = 'test-event';
+    await provider.subscribe(channel, () => {});
+    await provider.sendMessage(channel, event, message);
     expect(consoleWarnSpy).toHaveBeenCalledWith(
       `NoOpProvider: sendMessage() called for channel: ${channel}`,
       message,
