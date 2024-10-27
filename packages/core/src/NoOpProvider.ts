@@ -9,7 +9,7 @@ export class NoOpProvider implements ProviderInterface {
     console.warn('NoOpProvider: disconnect() called');
   }
 
-  async sendMessage(channel: string, message: string) {
+  async sendMessage(channel: string, event: string, message: string) {
     console.warn(
       `NoOpProvider: sendMessage() called for channel: ${channel}`,
       message,
@@ -28,5 +28,9 @@ export class NoOpProvider implements ProviderInterface {
   presence(channel: string) {
     console.warn(`NoOpProvider: presence() called for channel: ${channel}`);
     return new Promise<string[]>((resolve) => resolve([]));
+  }
+  // Implement isReady to check Ably's connection status
+  isReady(): boolean {
+    return true;
   }
 }
