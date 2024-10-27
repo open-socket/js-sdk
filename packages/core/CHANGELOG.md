@@ -1,3 +1,10 @@
+# [1.11.0](https://github.com/open-socket/js-sdk/compare/v1.10.0...v1.11.0) (2024-10-27)
+
+
+### Features
+
+* updated core interface required interface ([cd92204](https://github.com/open-socket/js-sdk/commit/cd92204819a810a008121533fce9befb96c2c450))
+
 # [1.10.0](https://github.com/open-socket/js-sdk/compare/v1.9.0...v1.10.0) (2024-10-27)
 
 
