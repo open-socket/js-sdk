@@ -1,12 +1,30 @@
-import { NoOpProvider } from './NoOpProvider';
 import { OpenSocket } from './index';
+import { ProviderInterface } from './ProviderInterface';
+
+// Mock implementation of the ProviderInterface
+const mockProvider: jest.Mocked<ProviderInterface> = {
+  connect: jest.fn().mockResolvedValue(undefined),
+  disconnect: jest.fn().mockResolvedValue(undefined),
+  isReady: jest.fn().mockReturnValue(true),
+  sendMessage: jest.fn().mockResolvedValue(undefined),
+  subscribe: jest.fn(),
+  unsubscribe: jest.fn(),
+  presence: jest.fn().mockResolvedValue(['user1']),
+  enterPresence: jest.fn().mockResolvedValue(undefined),
+  leavePresence: jest.fn().mockResolvedValue(undefined),
+  getHistory: jest.fn().mockResolvedValue([]),
+  rewind: jest.fn().mockResolvedValue(undefined),
+  on: jest.fn(),
+  off: jest.fn(),
+  setCustomData: jest.fn(),
+  getCurrentPresence: jest.fn().mockResolvedValue([]),
+  onError: jest.fn(),
+  reconnect: jest.fn().mockResolvedValue(undefined),
+};
 
 describe('OpenSocket', () => {
-  let provider: NoOpProvider;
-
   beforeEach(async () => {
-    provider = new NoOpProvider();
-    await OpenSocket.setProviderAndWait(provider);
+    await OpenSocket.setProviderAndWait(mockProvider);
   });
 
   afterEach(() => {
@@ -14,55 +32,122 @@ describe('OpenSocket', () => {
   });
 
   test('should connect to the provider', async () => {
-    const connectSpy = jest.spyOn(provider, 'connect');
-    OpenSocket.connect();
-    expect(connectSpy).toHaveBeenCalledTimes(0);
+    await OpenSocket.connect();
+    expect(mockProvider.connect).toHaveBeenCalledTimes(0);
   });
 
   test('should disconnect from the provider', async () => {
-    const disconnectSpy = jest.spyOn(provider, 'disconnect');
     await OpenSocket.disconnect();
-    expect(disconnectSpy).toHaveBeenCalled();
+    expect(mockProvider.disconnect).toHaveBeenCalled();
+  });
+
+  test('should check if provider is ready', () => {
+    const isReady = OpenSocket.isReady();
+    expect(isReady).toBe(true);
+    expect(mockProvider.isReady).toHaveBeenCalled();
   });
 
   test('should send a message through the provider', async () => {
-    const sendMessageSpy = jest.spyOn(provider, 'sendMessage');
     const channel = 'test-channel';
     const message = 'test-message';
     const event = 'test-event';
-    await OpenSocket.subscribe(channel, event, () => {});
+    await OpenSocket.subscribe(channel, event, jest.fn());
     await OpenSocket.sendMessage(channel, event, message);
-    expect(sendMessageSpy).toHaveBeenCalledWith(channel, event, message);
+    expect(mockProvider.sendMessage).toHaveBeenCalledWith(
+      channel,
+      event,
+      message,
+    );
   });
 
   test('should subscribe to a channel', () => {
-    const subscribeSpy = jest.spyOn(provider, 'subscribe');
     const channel = 'test-channel';
     const event = 'test-event';
     const callback = jest.fn();
     OpenSocket.subscribe(channel, event, callback);
-    expect(subscribeSpy).toHaveBeenCalledWith(channel, event, callback);
+    expect(mockProvider.subscribe).toHaveBeenCalledWith(
+      channel,
+      event,
+      callback,
+    );
   });
 
   test('should unsubscribe from a channel', () => {
-    const unsubscribeSpy = jest.spyOn(provider, 'unsubscribe');
     const channel = 'test-channel';
-    OpenSocket.unsubscribe(channel);
-    expect(unsubscribeSpy).toHaveBeenCalledWith(channel);
+    const event = 'test-event';
+    OpenSocket.unsubscribe(channel, event);
+    expect(mockProvider.unsubscribe).toHaveBeenCalledWith(channel, event);
   });
 
   test('should get presence information for a channel', async () => {
-    const presenceSpy = jest.spyOn(provider, 'presence');
     const channel = 'test-channel';
-    await OpenSocket.presence(channel);
-    expect(presenceSpy).toHaveBeenCalledWith(channel);
+    const presence = await OpenSocket.presence(channel);
+    expect(presence).toEqual(['user1']);
+    expect(mockProvider.presence).toHaveBeenCalledWith(channel);
   });
 
-  test('should warn when provider does not support presence', async () => {
-    const consoleWarnSpy = jest.spyOn(console, 'warn');
-    await OpenSocket.presence('test-channel');
-    expect(consoleWarnSpy).toHaveBeenCalledWith(
-      'NoOpProvider: presence() called for channel: test-channel',
-    );
+  test('should join the presence list', async () => {
+    const channel = 'test-channel';
+    const user = 'user1';
+    await OpenSocket.enterPresence(channel, user);
+    expect(mockProvider.enterPresence).toHaveBeenCalledWith(channel, user);
+  });
+
+  test('should leave the presence list', async () => {
+    const channel = 'test-channel';
+    const user = 'user1';
+    await OpenSocket.leavePresence(channel, user);
+    expect(mockProvider.leavePresence).toHaveBeenCalledWith(channel, user);
+  });
+
+  test('should retrieve message history for a channel', async () => {
+    const channel = 'test-channel';
+    const history = await OpenSocket.getHistory(channel);
+    expect(history).toEqual([]);
+    expect(mockProvider.getHistory).toHaveBeenCalledWith(channel, undefined);
+  });
+
+  test('should rewind the message stream for a channel', async () => {
+    const channel = 'test-channel';
+    const count = 5;
+    await OpenSocket.rewind(channel, count);
+    expect(mockProvider.rewind).toHaveBeenCalledWith(channel, count);
+  });
+
+  test('should set an event listener for custom provider events', () => {
+    const event = 'custom-event';
+    const callback = jest.fn();
+    OpenSocket.on(event, callback);
+    expect(mockProvider.on).toHaveBeenCalledWith(event, callback);
+  });
+
+  test('should remove an event listener for custom provider events', () => {
+    const event = 'custom-event';
+    OpenSocket.off(event);
+    expect(mockProvider.off).toHaveBeenCalledWith(event);
+  });
+
+  test('should set custom data for the provider', () => {
+    const data = { some: 'data' };
+    OpenSocket.setCustomData(data);
+    expect(mockProvider.setCustomData).toHaveBeenCalledWith(data);
+  });
+
+  test('should retrieve current presence information for a channel', async () => {
+    const channel = 'test-channel';
+    const presence = await OpenSocket.getCurrentPresence(channel);
+    expect(presence).toEqual([]);
+    expect(mockProvider.getCurrentPresence).toHaveBeenCalledWith(channel);
+  });
+
+  test('should set an error handler callback', () => {
+    const errorCallback = jest.fn();
+    OpenSocket.onError(errorCallback);
+    expect(mockProvider.onError).toHaveBeenCalledWith(errorCallback);
+  });
+
+  test('should reconnect to the provider', async () => {
+    await OpenSocket.reconnect();
+    expect(mockProvider.reconnect).toHaveBeenCalled();
   });
 });
