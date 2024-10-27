@@ -1,3 +1,15 @@
+# [1.8.0](https://github.com/open-socket/js-sdk/compare/v1.7.0...v1.8.0) (2024-10-27)
+
+
+### Bug Fixes
+
+* test cases fixed ([6ffc8ea](https://github.com/open-socket/js-sdk/commit/6ffc8ea6447b3606d0b15ea4a6d15400bdc21329))
+
+
+### Features
+
+* updating core-js provider ([5529aae](https://github.com/open-socket/js-sdk/commit/5529aae55e1eae1340b15aacb3671f84424d4424))
+
 ## [1.5.1](https://github.com/open-socket/js-sdk/compare/v1.5.0...v1.5.1) (2024-10-26)
 
 

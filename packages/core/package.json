@@ -1,6 +1,6 @@
 {
   "name": "@opensocket/core-js",
-  "version": "1.5.1",
+  "version": "1.8.0",
   "private": false,
   "publishConfig": {
     "access": "public"
