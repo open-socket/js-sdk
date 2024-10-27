@@ -78,7 +78,7 @@ export interface ProviderInterface {
    * @param channel - The channel to get the presence for.
    * @returns A promise that resolves with an array of user IDs in the channel.
    */
-  presence(channel: string): Promise<string[]>;
+  presence?(channel: string): Promise<string[]>;
 
   /**
    * Joins the presence list in a channel.
@@ -86,7 +86,7 @@ export interface ProviderInterface {
    * @param user - The user joining the presence list.
    * @returns A promise that resolves once the user has joined.
    */
-  enterPresence(channel: string, user: string): Promise<void>;
+  enterPresence?(channel: string, user: string): Promise<void>;
 
   /**
    * Leaves the presence list in a channel.
@@ -94,7 +94,7 @@ export interface ProviderInterface {
    * @param user - The user leaving the presence list.
    * @returns A promise that resolves once the user has left.
    */
-  leavePresence(channel: string, user: string): Promise<void>;
+  leavePresence?(channel: string, user: string): Promise<void>;
 
   /**
    * Retrieves message history for a channel.
@@ -102,7 +102,7 @@ export interface ProviderInterface {
    * @param options - Optional parameters to filter history.
    * @returns A promise that resolves with an array of messages.
    */
-  getHistory(channel: string, options?: HistoryOptions): Promise<Message[]>;
+  getHistory?(channel: string, options?: HistoryOptions): Promise<Message[]>;
 
   /**
    * Rewinds the message stream for a channel.
@@ -110,20 +110,20 @@ export interface ProviderInterface {
    * @param count - The number of messages to rewind.
    * @returns A promise that resolves once the rewind is complete.
    */
-  rewind(channel: string, count: number): Promise<void>;
+  rewind?(channel: string, count: number): Promise<void>;
 
   /**
    * Sets an event listener for custom provider events.
    * @param event - The event name to listen for.
    * @param callback - The callback function to handle the event data.
    */
-  on(event: string, callback: (data: EventData) => void): void;
+  on?(event: string, callback: (data: EventData) => void): void;
 
   /**
    * Removes an event listener for a custom provider event.
    * @param event - The event name to remove the listener for.
    */
-  off(event: string): void;
+  off?(event: string): void;
 
   /**
    * Sets custom data for the provider, if supported.
