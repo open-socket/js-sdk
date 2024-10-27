@@ -79,7 +79,11 @@ class OpenSocketCore {
     await this.provider.sendMessage(channel, event, message);
   }
 
-  async subscribe(channel: string, callback: (message: string) => void) {
+  async subscribe(
+    channel: string,
+    event: string,
+    callback: (message: string) => void,
+  ) {
     if (!this.isConnected) {
       const error = 'OpenSocket: Not connected to the provider';
       console.warn(error);
@@ -87,7 +91,7 @@ class OpenSocketCore {
     }
     try {
       this.subscribedChannels.add(channel);
-      this.provider.subscribe(channel, callback);
+      this.provider.subscribe(channel, event, callback);
     } catch (error) {
       console.error(`Failed to subscribe to channel ${channel}:`, error);
       throw error;

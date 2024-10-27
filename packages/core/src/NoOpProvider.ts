@@ -16,7 +16,11 @@ export class NoOpProvider implements ProviderInterface {
     );
   }
 
-  subscribe(channel: string, callback: (message: string) => void) {
+  subscribe(
+    channel: string,
+    event: string,
+    callback: (message: string) => void,
+  ) {
     console.warn(`NoOpProvider: subscribe() called for channel: ${channel}`);
     callback('NoOpProvider: subscribe() called');
   }

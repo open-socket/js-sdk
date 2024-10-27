@@ -32,7 +32,7 @@ describe('NoOpProvider', () => {
     const channel = 'test-channel';
     const message = 'test-message';
     const event = 'test-event';
-    await provider.subscribe(channel, () => {});
+    await provider.subscribe(channel, event, () => {});
     await provider.sendMessage(channel, event, message);
     expect(consoleWarnSpy).toHaveBeenCalledWith(
       `NoOpProvider: sendMessage() called for channel: ${channel}`,
@@ -43,8 +43,9 @@ describe('NoOpProvider', () => {
   test('should log a warning when subscribe() is called', () => {
     const consoleWarnSpy = jest.spyOn(console, 'warn');
     const channel = 'test-channel';
+    const event = 'test-event';
     const callback = jest.fn();
-    provider.subscribe(channel, callback);
+    provider.subscribe(channel, event, callback);
     expect(consoleWarnSpy).toHaveBeenCalledWith(
       `NoOpProvider: subscribe() called for channel: ${channel}`,
     );

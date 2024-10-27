@@ -30,7 +30,7 @@ describe('OpenSocket', () => {
     const channel = 'test-channel';
     const message = 'test-message';
     const event = 'test-event';
-    await OpenSocket.subscribe(channel, () => {});
+    await OpenSocket.subscribe(channel, event, () => {});
     await OpenSocket.sendMessage(channel, event, message);
     expect(sendMessageSpy).toHaveBeenCalledWith(channel, event, message);
   });
@@ -38,9 +38,10 @@ describe('OpenSocket', () => {
   test('should subscribe to a channel', () => {
     const subscribeSpy = jest.spyOn(provider, 'subscribe');
     const channel = 'test-channel';
+    const event = 'test-event';
     const callback = jest.fn();
-    OpenSocket.subscribe(channel, callback);
-    expect(subscribeSpy).toHaveBeenCalledWith(channel, callback);
+    OpenSocket.subscribe(channel, event, callback);
+    expect(subscribeSpy).toHaveBeenCalledWith(channel, event, callback);
   });
 
   test('should unsubscribe from a channel', () => {
