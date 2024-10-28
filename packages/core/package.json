@@ -5,9 +5,12 @@
   "publishConfig": {
     "access": "public"
   },
-  "main": "dist/cjs",
-  "module": "dist/esm",
-  "types": "dist/types",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/types/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "clean": "shx rm -rf ./dist",
     "build": "npm run clean && npm run build:cjs && npm run build:esm && npm run build:types",

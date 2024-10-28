@@ -34,7 +34,7 @@ export interface ProviderInterface {
    */
   sendMessage(
     channel: string,
-    event: string,
+    event: string | string[],
     message: string | object,
   ): Promise<void>;
 
@@ -51,12 +51,12 @@ export interface ProviderInterface {
   /**
    * Subscribes to a specific event on a channel.
    * @param channel - The channel to subscribe to.
-   * @param event - The event name to subscribe to.
+   * @param eventsOrOptions - The event(s) name or options to subscribe to.
    * @param callback - The callback function to handle incoming messages, with optional metadata.
    */
   subscribe(
     channel: string,
-    event: string,
+    eventsOrOptions: string | string[] | object,
     callback: (message: string | object, metadata?: MessageMetadata) => void,
   ): void;
 
@@ -64,21 +64,35 @@ export interface ProviderInterface {
    * Unsubscribes from a channel.
    * @param channel - The channel to unsubscribe from.
    */
-  unsubscribe(channel: string): void;
+  unsubscribe(channel: string): Promise<void>;
 
   /**
    * Unsubscribes from a channel or event.
    * @param channel - The channel to unsubscribe from.
    * @param event - Optional event name to unsubscribe from.
    */
-  unsubscribe(channel: string, event?: string): void;
+  unsubscribe(channel: string, event?: string): Promise<void>;
 
   /**
    * Retrieves the presence list for a channel.
    * @param channel - The channel to get the presence for.
-   * @returns A promise that resolves with an array of user IDs in the channel.
+   * @param callback - The callback function to handle the presence list.
+   * @returns
    */
-  presence?(channel: string): Promise<string[]>;
+  presence?(channel: string, callback: (users: object) => void): void;
+
+  /**
+   * Retrieves the presence list for a channel for specific events.
+   * @param channel - The channel to check.
+   * @param user - The user to check for presence.
+   * @param callback - The callback function to handle the presence status.
+   * @returns A promise that resolves with the presence status.
+   */
+  presence?(
+    channel: string,
+    events: string | string[],
+    callback: (users: object) => void,
+  ): void;
 
   /**
    * Joins the presence list in a channel.
@@ -86,7 +100,15 @@ export interface ProviderInterface {
    * @param user - The user joining the presence list.
    * @returns A promise that resolves once the user has joined.
    */
-  enterPresence?(channel: string, user: string): Promise<void>;
+  enterPresence?(channel: string, user: string | object): Promise<void>;
+
+  /**
+   * Updates the presence list in a channel.
+   * @param channel - The channel to update.
+   * @param user - The user to update in the presence list.
+   * @returns A promise that resolves once the user has been updated.
+   */
+  updatePresence?(channel: string, user: string | object): Promise<void>;
 
   /**
    * Leaves the presence list in a channel.
@@ -94,7 +116,14 @@ export interface ProviderInterface {
    * @param user - The user leaving the presence list.
    * @returns A promise that resolves once the user has left.
    */
-  leavePresence?(channel: string, user: string): Promise<void>;
+  leavePresence?(channel: string, user: string | object): Promise<void>;
+
+  /**
+   * Retrieves the presence history for a channel.
+   * @param channel - The channel to retrieve history for.
+   * @returns A promise that resolves with an array of presence members.
+   */
+  presenceHistory?(channel: string): Promise<PresenceMember[]>;
 
   /**
    * Retrieves message history for a channel.
@@ -102,15 +131,15 @@ export interface ProviderInterface {
    * @param options - Optional parameters to filter history.
    * @returns A promise that resolves with an array of messages.
    */
-  getHistory?(channel: string, options?: HistoryOptions): Promise<Message[]>;
+  history?(channel: string, options?: HistoryOptions): Promise<Message[]>;
 
   /**
    * Rewinds the message stream for a channel.
    * @param channel - The channel to rewind.
    * @param count - The number of messages to rewind.
-   * @returns A promise that resolves once the rewind is complete.
+   * @returns A promise that resolves with an array of messages.
    */
-  rewind?(channel: string, count: number): Promise<void>;
+  rewind?(channel: string, count: number): Promise<Message[]>;
 
   /**
    * Sets an event listener for custom provider events.
@@ -130,13 +159,6 @@ export interface ProviderInterface {
    * @param data - The custom data object.
    */
   setCustomData?(data: CustomData): void;
-
-  /**
-   * Retrieves the current presence in a channel, if supported.
-   * @param channel - The channel to retrieve presence information for.
-   * @returns A promise that resolves with an array of PresenceMember objects.
-   */
-  getCurrentPresence?(channel: string): Promise<PresenceMember[]>;
 
   /**
    * Sets an error handler callback, if supported by the provider.

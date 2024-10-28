@@ -12,19 +12,18 @@ const mockProvider: jest.Mocked<ProviderInterface> = {
   presence: jest.fn().mockResolvedValue(['user1']),
   enterPresence: jest.fn().mockResolvedValue(undefined),
   leavePresence: jest.fn().mockResolvedValue(undefined),
-  getHistory: jest.fn().mockResolvedValue([]),
+  history: jest.fn().mockResolvedValue([]),
   rewind: jest.fn().mockResolvedValue(undefined),
   on: jest.fn(),
   off: jest.fn(),
   setCustomData: jest.fn(),
-  getCurrentPresence: jest.fn().mockResolvedValue([]),
   onError: jest.fn(),
   reconnect: jest.fn().mockResolvedValue(undefined),
 };
 
 describe('OpenSocket', () => {
   beforeEach(async () => {
-    await OpenSocket.setProviderAndWait(mockProvider);
+    await OpenSocket.setProvider(mockProvider);
   });
 
   afterEach(() => {
@@ -81,9 +80,10 @@ describe('OpenSocket', () => {
 
   test('should get presence information for a channel', async () => {
     const channel = 'test-channel';
-    const presence = await OpenSocket.presence(channel);
-    expect(presence).toEqual(['user1']);
-    expect(mockProvider.presence).toHaveBeenCalledWith(channel);
+    OpenSocket.presence(channel, (presence) => {
+      expect(presence).toEqual(['user1']);
+      expect(mockProvider.presence).toHaveBeenCalledWith(channel);
+    });
   });
 
   test('should join the presence list', async () => {
@@ -102,9 +102,9 @@ describe('OpenSocket', () => {
 
   test('should retrieve message history for a channel', async () => {
     const channel = 'test-channel';
-    const history = await OpenSocket.getHistory(channel);
+    const history = await OpenSocket.history(channel);
     expect(history).toEqual([]);
-    expect(mockProvider.getHistory).toHaveBeenCalledWith(channel, undefined);
+    expect(mockProvider.history).toHaveBeenCalledWith(channel, undefined);
   });
 
   test('should rewind the message stream for a channel', async () => {
@@ -131,13 +131,6 @@ describe('OpenSocket', () => {
     const data = { some: 'data' };
     OpenSocket.setCustomData(data);
     expect(mockProvider.setCustomData).toHaveBeenCalledWith(data);
-  });
-
-  test('should retrieve current presence information for a channel', async () => {
-    const channel = 'test-channel';
-    const presence = await OpenSocket.getCurrentPresence(channel);
-    expect(presence).toEqual([]);
-    expect(mockProvider.getCurrentPresence).toHaveBeenCalledWith(channel);
   });
 
   test('should set an error handler callback', () => {

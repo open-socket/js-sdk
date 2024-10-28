@@ -51,17 +51,19 @@ export class NoOpProvider implements ProviderInterface {
   ): void;
   subscribe(
     channel: string,
-    event: string,
+    event: string | string[] | object,
     callback: (message: string | object, metadata?: MessageMetadata) => void,
   ): void;
   subscribe(
     channel: string,
     arg2:
       | string
+      | string[]
+      | object
       | ((message: string | object, metadata?: MessageMetadata) => void),
     callback?: (message: string | object, metadata?: MessageMetadata) => void,
   ): void {
-    if (typeof arg2 === 'string' && callback) {
+    if (typeof callback === 'function') {
       console.warn(
         `NoOpProvider: subscribe() called for channel: ${channel} with event: ${arg2}`,
       );
@@ -72,7 +74,9 @@ export class NoOpProvider implements ProviderInterface {
     }
   }
 
-  unsubscribe(channel: string, event?: string): void {
+  async unsubscribe(channel: string): Promise<void>;
+  async unsubscribe(channel: string, event?: string): Promise<void>;
+  async unsubscribe(channel: string, event?: string): Promise<void> {
     if (event) {
       console.warn(
         `NoOpProvider: unsubscribe() called for channel: ${channel} with event: ${event}`,
@@ -95,27 +99,38 @@ export class NoOpProvider implements ProviderInterface {
     );
   }
 
+  async updatePresence(channel: string, user: string | object): Promise<void> {
+    console.warn(
+      `NoOpProvider: updatePresence() called for channel: ${channel} by user: ${user}`,
+    );
+    return Promise.resolve();
+  }
+
   async leavePresence(channel: string, user: string): Promise<void> {
     console.warn(
       `NoOpProvider: leavePresence() called for channel: ${channel} by user: ${user}`,
     );
   }
-
-  async getHistory(
-    channel: string,
-    options?: HistoryOptions,
-  ): Promise<Message[]> {
+  async presenceHistory(channel: string): Promise<PresenceMember[]> {
     console.warn(
-      `NoOpProvider: getHistory() called for channel: ${channel} with options:`,
-      options,
+      `NoOpProvider: presenceHistory() called for channel: ${channel}`,
     );
-    return []; // Return an empty message history
+    return Promise.resolve([]); // Return an empty presence list
   }
 
-  async rewind(channel: string, count: number): Promise<void> {
+  async history(channel: string, options?: HistoryOptions): Promise<Message[]> {
     console.warn(
-      `NoOpProvider: rewind() called for channel: ${channel} to count: ${count}`,
+      `NoOpProvider: history() called for channel: ${channel} with options:`,
+      options,
     );
+    return Promise.resolve([]); // Return an empty message history
+  }
+
+  async rewind(channel: string, count: number): Promise<Message[]> {
+    console.warn(
+      `NoOpProvider: rewind() called for channel: ${channel} with count: ${count}`,
+    );
+    return Promise.resolve([]); // Return an empty message history
   }
 
   on(event: string, callback: (data: EventData) => void): void {

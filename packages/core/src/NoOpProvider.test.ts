@@ -127,13 +127,13 @@ describe('NoOpProvider', () => {
     );
   });
 
-  test('should log a warning when getHistory() is called', async () => {
+  test('should log a warning when history() is called', async () => {
     const consoleWarnSpy = jest.spyOn(console, 'warn');
     const channel = 'test-channel';
     const options = { limit: 10 };
-    const result = await provider.getHistory(channel, options);
+    const result = await provider.history(channel, options);
     expect(consoleWarnSpy).toHaveBeenCalledWith(
-      `NoOpProvider: getHistory() called for channel: ${channel} with options:`,
+      `NoOpProvider: history() called for channel: ${channel} with options:`,
       options,
     );
     expect(result).toEqual([]);
@@ -145,7 +145,7 @@ describe('NoOpProvider', () => {
     const count = 5;
     await provider.rewind(channel, count);
     expect(consoleWarnSpy).toHaveBeenCalledWith(
-      `NoOpProvider: rewind() called for channel: ${channel} to count: ${count}`,
+      `NoOpProvider: rewind() called for channel: ${channel} with count: ${count}`,
     );
   });
 
