@@ -1,3 +1,10 @@
+# [1.13.0](https://github.com/open-socket/js-sdk/compare/v1.12.0...v1.13.0) (2024-10-28)
+
+
+### Features
+
+* updated core interface ([fba7271](https://github.com/open-socket/js-sdk/commit/fba727134839210cb7ba8163dd7edb8811568cf1))
+
 # [1.12.0](https://github.com/open-socket/js-sdk/compare/v1.11.0...v1.12.0) (2024-10-28)
 
 
