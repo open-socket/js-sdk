@@ -175,7 +175,8 @@ class OpenSocketCore {
     try {
       if (
         typeof eventOrOptionsOrCallback === 'string' ||
-        Array.isArray(eventOrOptionsOrCallback)
+        Array.isArray(eventOrOptionsOrCallback) ||
+        typeof eventOrOptionsOrCallback === 'object'
       ) {
         this.provider.subscribe(
           channel,
