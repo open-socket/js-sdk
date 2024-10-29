@@ -1,3 +1,10 @@
+# [1.14.0](https://github.com/open-socket/js-sdk/compare/v1.13.0...v1.14.0) (2024-10-29)
+
+
+### Features
+
+* **core-js:** updated the history interface ([d026ccc](https://github.com/open-socket/js-sdk/commit/d026ccc2a644649d77b6adb955e664b90c9a5a07))
+
 # [1.13.0](https://github.com/open-socket/js-sdk/compare/v1.12.0...v1.13.0) (2024-10-28)
 
 
