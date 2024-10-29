@@ -128,6 +128,13 @@ export interface ProviderInterface {
   /**
    * Retrieves message history for a channel.
    * @param channel - The channel to retrieve history for.
+   * @returns A promise that resolves with an array of messages.
+   */
+  history?(channel: string): Promise<Message[]>;
+
+  /**
+   * Retrieves message history for a channel.
+   * @param channel - The channel to retrieve history for.
    * @param options - Optional parameters to filter history.
    * @returns A promise that resolves with an array of messages.
    */

@@ -314,13 +314,23 @@ class OpenSocketCore {
   /**
    * Retrieves message history for a channel.
    * @param channel - The target channel.
+   * @returns A promise resolving to an array of messages.
+   */
+  async history(channel: string): Promise<Message[]>;
+  /**
+   * Retrieves message history for a channel.
+   * @param channel - The target channel.
    * @param options - Optional parameters to filter history.
    * @returns A promise resolving to an array of messages.
    */
+  async history(channel: string, options?: HistoryOptions): Promise<Message[]>;
   async history(channel: string, options?: HistoryOptions): Promise<Message[]> {
     if (!this.isConnected)
       throw new Error('OpenSocket: Not connected to the provider');
     if (this.provider.history) {
+      if (options) {
+        return await this.provider.history(channel, options);
+      }
       return await this.provider.history(channel, options);
     }
     console.warn('OpenSocket: Provider does not support message history.');
