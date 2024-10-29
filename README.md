@@ -1,8 +1,8 @@
 <!-- markdownlint-disable MD033 -->
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/open-feature/community/0e23508c163a6a1ac8c0ced3e4bd78faafe627c7/assets/logo/horizontal/white/openfeature-horizontal-white.svg">
-    <img align="center" alt="OpenFeature Logo" src="https://raw.githubusercontent.com/open-feature/community/0e23508c163a6a1ac8c0ced3e4bd78faafe627c7/assets/logo/horizontal/black/openfeature-horizontal-black.svg" />
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/open-socket/community/refs/heads/main/assets/logo/horizontal/black/openfeature-horizontal-black.png">
+    <img align="center" alt="OpenFeature Logo" src="https://raw.githubusercontent.com/open-socket/community/refs/heads/main/assets/logo/horizontal/black/openfeature-horizontal-black.png" />
   </picture>
 </p>
 
@@ -49,14 +49,6 @@ js-sdk/
 ### React SDK installation
 ```npm install @opensocket/react-sdk```
 
-### Next.js SDK installation
-```npm install @opensocket/next-sdk```
-
-### Vanilla JavaScript SDK installation
-```npm install @opensocket/vanilla-sdk```
-
-### Angular SDK installation
-```npm install @opensocket/angular-sdk```
 
 ## 🤝 Contributing
 
