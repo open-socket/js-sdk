@@ -32,6 +32,7 @@
 
 * **deps:** update dependency @testing-library/jest-dom to v6.6.3 ([7000d12](https://github.com/open-socket/js-sdk/commit/7000d122c73456fb08773a0e476fd147d441029a))
 * **main:** release core-js 0.0.2-experimental ([a523bef](https://github.com/open-socket/js-sdk/commit/a523befea34424d5d6e03ea6fec1e25f637bced2))
+* release main ([b46d42f](https://github.com/open-socket/js-sdk/commit/b46d42f3f9156c3be395dc0f9a657bdf29c5300b))
 * release main ([4b17328](https://github.com/open-socket/js-sdk/commit/4b17328315e67f77cfb949f209bb4364ea4fbd3c))
 * **release:** 1.10.0 [skip ci] ([c801187](https://github.com/open-socket/js-sdk/commit/c801187a41d101c992a6573e7ef87f7597441454))
 * **release:** 1.11.0 [skip ci] ([abf0434](https://github.com/open-socket/js-sdk/commit/abf043492304565a56ed8251285cc12cc4a527f7))
