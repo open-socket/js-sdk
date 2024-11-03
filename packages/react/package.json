@@ -1,5 +1,5 @@
 {
-  "name": "@opensocket/react-sdk",
+  "name": "@opensocket/react",
   "version": "0.0.1",
   "description": "OpenSocket SDK For React",
   "main": "./dist/cjs/index.js",
