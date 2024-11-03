@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.0.6-experimental](https://github.com/open-socket/js-sdk/compare/react-v0.0.5-experimental...react-v0.0.6-experimental) (2024-11-03)
+
+
+### 🧹 Chore
+
+* release main ([bcbb7b4](https://github.com/open-socket/js-sdk/commit/bcbb7b4553cc1d10cce48384a361c805c74b6c09))
+
 ## [0.0.5-experimental](https://github.com/open-socket/js-sdk/compare/react-v0.0.4-experimental...react-v0.0.5-experimental) (2024-11-03)
 
 
