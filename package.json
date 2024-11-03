@@ -41,7 +41,7 @@
     "@types/jest": "^29.5.12",
     "@types/node": "^20.11.16",
     "@types/react": "^18.2.55",
-    "@types/uuid": "^9.0.8",
+    "@types/uuid": "^10.0.0",
     "commitizen": "^4.3.1",
     "conventional-changelog-cli": "^5.0.0",
     "cz-conventional-changelog": "^3.3.0",
