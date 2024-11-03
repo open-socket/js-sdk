@@ -1,6 +1,6 @@
 {
   "$schema": "https://typedoc.org/schema.json",
-  "name": "@opensocket/js-sdk",
+  "name": "@opensocket/react-sdk",
   "includeVersion": true,
   "entryPoints": ["src/index.ts"]
 }
