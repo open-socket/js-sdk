@@ -1,5 +1,16 @@
 # Changelog
 
+## [0.0.3-experimental](https://github.com/open-socket/js-sdk/compare/core-js-v0.0.2-experimental...core-js-v0.0.3-experimental) (2024-11-03)
+
+
+### 🧹 Chore
+
+* **main:** release core-js 0.0.2-experimental ([7615f35](https://github.com/open-socket/js-sdk/commit/7615f35fb7a421d8ca439771687711c3f057fdaf))
+* **main:** release core-js 0.0.2-experimental ([c7ac70c](https://github.com/open-socket/js-sdk/commit/c7ac70c2ac9148c2e9bb581e864e5feb5f0f35f8))
+* **main:** release core-js 0.0.2-experimental ([8250a20](https://github.com/open-socket/js-sdk/commit/8250a209dd9d16cd363c57bc32e321560c602916))
+* release main ([b46d42f](https://github.com/open-socket/js-sdk/commit/b46d42f3f9156c3be395dc0f9a657bdf29c5300b))
+* release main ([4b17328](https://github.com/open-socket/js-sdk/commit/4b17328315e67f77cfb949f209bb4364ea4fbd3c))
+
 ## [0.0.2-experimental](https://github.com/open-socket/js-sdk/compare/core-js-v0.0.1-experimental...core-js-v0.0.2-experimental) (2024-11-03)
 
 
