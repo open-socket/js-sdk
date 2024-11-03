@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.0.4-experimental](https://github.com/open-socket/js-sdk/compare/react-v0.0.3-experimental...react-v0.0.4-experimental) (2024-11-03)
+
+
+### 🧹 Chore
+
+* release main ([eae5899](https://github.com/open-socket/js-sdk/commit/eae58998597bec5f599a15f6f0da92a068ca0f39))
+
 ## [0.0.3-experimental](https://github.com/open-socket/js-sdk/compare/react-v0.0.2-experimental...react-v0.0.3-experimental) (2024-11-03)
 
 
