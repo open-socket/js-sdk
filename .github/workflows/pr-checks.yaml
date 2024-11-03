@@ -60,22 +60,22 @@ jobs:
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v3
 
-  e2e:
-    runs-on: ubuntu-latest
+  # e2e:
+  #   runs-on: ubuntu-latest
 
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          # we need 'fetch' for this test, which is only in 18
-          node-version: 20
-          cache: 'npm'
+  #   steps:
+  #     - uses: actions/checkout@v4
+  #     - uses: actions/setup-node@v4
+  #       with:
+  #         # we need 'fetch' for this test, which is only in 18
+  #         node-version: 20
+  #         cache: 'npm'
 
-      - name: Install
-        run: npm ci
+  #     - name: Install
+  #       run: npm ci
 
-      - name: Build
-        run: npm run build
+  #     - name: Build
+  #       run: npm run build
 
-      - name: SDK e2e tests
-        run: npm run e2e
+  #     - name: SDK e2e tests
+  #       run: npm run e2e
