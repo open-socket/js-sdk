@@ -1,5 +1,5 @@
-import { OpenSocket } from './OpenSocketCore';
+import { OpenSocket } from './open-socket-core';
 
-export * from './OpenSocketCore';
-export * from './ProviderInterface';
+export * from './open-socket-core';
+export * from './provider-interface';
 export default OpenSocket;

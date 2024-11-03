@@ -32,21 +32,14 @@ export interface ProviderInterface {
    * @param message - The message content, which can be a string or an object.
    * @returns A promise that resolves once the message is sent.
    */
-  sendMessage(
-    channel: string,
-    event: string | string[],
-    message: string | object,
-  ): Promise<void>;
+  sendMessage(channel: string, event: string | string[], message: string | object): Promise<void>;
 
   /**
    * Subscribes to a specific channel.
    * @param channel - The channel to subscribe to.
    * @param callback - The callback function to handle incoming messages, with optional metadata.
    */
-  subscribe(
-    channel: string,
-    callback: (message: string | object, metadata?: MessageMetadata) => void,
-  ): void;
+  subscribe(channel: string, callback: (message: string | object, metadata?: MessageMetadata) => void): void;
 
   /**
    * Subscribes to a specific event on a channel.
@@ -84,15 +77,11 @@ export interface ProviderInterface {
   /**
    * Retrieves the presence list for a channel for specific events.
    * @param channel - The channel to check.
-   * @param user - The user to check for presence.
+   * @param events - The user to check for presence.
    * @param callback - The callback function to handle the presence status.
    * @returns A promise that resolves with the presence status.
    */
-  presence?(
-    channel: string,
-    events: string | string[],
-    callback: (users: object) => void,
-  ): void;
+  presence?(channel: string, events: string | string[], callback: (users: object) => void): void;
 
   /**
    * Joins the presence list in a channel.

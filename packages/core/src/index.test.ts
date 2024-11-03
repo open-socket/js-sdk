@@ -1,5 +1,5 @@
 import { OpenSocket } from './index';
-import { ProviderInterface } from './ProviderInterface';
+import type { ProviderInterface } from './provider-interface';
 
 // Mock implementation of the ProviderInterface
 const mockProvider: jest.Mocked<ProviderInterface> = {
@@ -52,11 +52,7 @@ describe('OpenSocket', () => {
     const event = 'test-event';
     await OpenSocket.subscribe(channel, event, jest.fn());
     await OpenSocket.sendMessage(channel, event, message);
-    expect(mockProvider.sendMessage).toHaveBeenCalledWith(
-      channel,
-      event,
-      message,
-    );
+    expect(mockProvider.sendMessage).toHaveBeenCalledWith(channel, event, message);
   });
 
   test('should subscribe to a channel', () => {
@@ -64,11 +60,7 @@ describe('OpenSocket', () => {
     const event = 'test-event';
     const callback = jest.fn();
     OpenSocket.subscribe(channel, event, callback);
-    expect(mockProvider.subscribe).toHaveBeenCalledWith(
-      channel,
-      event,
-      callback,
-    );
+    expect(mockProvider.subscribe).toHaveBeenCalledWith(channel, event, callback);
   });
 
   test('should unsubscribe from a channel', () => {

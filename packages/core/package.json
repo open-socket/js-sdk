@@ -1,45 +1,46 @@
 {
   "name": "@opensocket/core-js",
-  "version": "1.14.0",
-  "private": false,
-  "publishConfig": {
-    "access": "public"
+  "version": "0.0.1",
+  "description": "OpenSocket Core For JavaScript",
+  "main": "./dist/cjs/index.js",
+  "exports": {
+    "types": "./dist/types.d.ts",
+    "import": "./dist/esm/index.js",
+    "require": "./dist/cjs/index.js",
+    "default": "./dist/cjs/index.js"
   },
-  "main": "dist/cjs/index.js",
-  "module": "dist/esm/index.js",
-  "types": "dist/types/index.d.ts",
-  "files": [
-    "dist"
-  ],
+  "types": "./dist/types.d.ts",
   "scripts": {
+    "test": "jest --verbose",
+    "lint": "eslint ./",
+    "lint:fix": "eslint ./ --fix",
     "clean": "shx rm -rf ./dist",
-    "build": "npm run clean && npm run build:cjs && npm run build:esm && npm run build:types",
-    "build:cjs": "babel src --out-dir dist/cjs --extensions .js,.ts --presets @babel/preset-env --ignore 'src/**/*.test.js'",
-    "build:esm": "babel src --out-dir dist/esm --extensions .js,.ts --presets @babel/preset-env --ignore 'src/**/*.test.js'",
-    "build:types": "tsc",
-    "test": "jest",
-    "release": "semantic-release"
+    "build:esm": "esbuild src/index.ts --bundle --sourcemap --target=es2015 --platform=browser --format=esm --outfile=./dist/esm/index.js --analyze",
+    "build:cjs": "esbuild src/index.ts --bundle --sourcemap --target=es2015 --platform=browser --format=cjs --outfile=./dist/cjs/index.js --analyze",
+    "build:rollup-types": "rollup -c ../../rollup.config.mjs",
+    "build": "npm run clean && npm run build:esm && npm run build:cjs && npm run build:rollup-types",
+    "postbuild": "shx cp ./../../package.esm.json ./dist/esm/package.json",
+    "current-version": "echo $npm_package_version",
+    "prepack": "shx cp ./../../LICENSE ./LICENSE",
+    "publish-if-not-exists": "cp $NPM_CONFIG_USERCONFIG .npmrc && if [ \"$(npm show $npm_package_name@$npm_package_version version)\" = \"$(npm run current-version -s)\" ]; then echo 'already published, skipping'; else npm publish --access public; fi"
   },
-  "devDependencies": {
-    "@babel/cli": "^7.25.9",
-    "@babel/core": "^7.26.0",
-    "@babel/preset-env": "^7.26.0",
-    "@babel/preset-typescript": "^7.26.0",
-    "@testing-library/jest-dom": "^6.6.2",
-    "@testing-library/react": "^16.0.1",
-    "@types/jest": "^29.5.14",
-    "jest": "^27.0.6",
-    "shx": "^0.3.3",
-    "typescript": "^5.6.3"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/open-socket/js-sdk.git"
   },
-  "jest": {
-    "testEnvironment": "jsdom",
-    "moduleFileExtensions": [
-      "js",
-      "ts"
-    ],
-    "setupFilesAfterEnv": [
-      "@testing-library/jest-dom"
-    ]
-  }
+  "keywords": [
+    "opensocket",
+    "socket",
+    "realtime",
+    "browser",
+    "web"
+  ],
+  "author": "",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/open-socket/js-sdk/issues"
+  },
+  "homepage": "https://github.com/open-socket/js-sdk#readme",
+  "peerDependencies": {},
+  "devDependencies": {}
 }

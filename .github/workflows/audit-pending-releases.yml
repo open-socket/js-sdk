@@ -1,0 +1,49 @@
+on:
+  push:
+    branches:
+      - 'release-please**'
+
+env:
+  CORE_PACKAGE: core
+
+name: Audit Pending Releases
+jobs:
+  npm-release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.ref }}
+
+      # if this is an SDK release, make sure there are no pending releases for @opensocket/core-js
+      - name: Check for Pending Dependency PRs
+        if: ${{ !endsWith(github.ref_name, env.CORE_PACKAGE) }}
+        run: |
+          if [ $(gh pr list --search '"release ${{ env.CORE_PACKAGE }}" in:title' | wc -l) -gt 0 ]; \
+            then echo "Pending @opensocket/${{ env.CORE_PACKAGE }} release. Please release @opensocket/${{ env.CORE_PACKAGE }} first!" && exit 1; \
+            else echo "No pending @opensocket/${{ env.CORE_PACKAGE }} releases"; \
+          fi
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          registry-url: 'https://registry.npmjs.org'
+          cache: 'npm'
+
+      # if this is an @opensocket/core-js release, set the SDKs to use this version as a peer, and commit back
+      - name: Update Peer Version in Dependants
+        if: ${{ endsWith(github.ref_name, env.CORE_PACKAGE) }}
+        run: |
+          npm run update-core-peers && \
+          ! git diff-files --quiet && \
+          ( echo 'Updated peer dependency in dependents, committing...'
+          git add --all && \
+          git config user.name "opensocket-peer-update-bot" && \
+          git config user.email "16950646+shujieali@users.noreply.github.com" && \
+          git commit -m 'fix: bump @opensocket/${{ env.CORE_PACKAGE }} peer' -s && \
+          git push ) || echo 'Peer dependency in dependents is already up to date.'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

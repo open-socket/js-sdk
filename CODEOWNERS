@@ -1,0 +1,11 @@
+# These owners will be the default owners for everything in
+
+# the repo. Unless a later match takes precedence
+
+#
+
+# Managed by Peribolos: https://github.com/open-socket/community/blob/main/config/open-socket/sdk-javascript/workgroup.yaml
+
+#
+
+- @open-socket/sdk-javascript-maintainers

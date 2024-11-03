@@ -1,11 +1,11 @@
-import {
+import type {
   ProviderInterface,
   Message,
   MessageMetadata,
   EventData,
   HistoryOptions,
   PresenceMember,
-} from './ProviderInterface';
+} from './provider-interface';
 
 export class NoOpProvider implements ProviderInterface {
   async connect() {
@@ -22,33 +22,16 @@ export class NoOpProvider implements ProviderInterface {
   }
 
   async sendMessage(channel: string, message: string | object): Promise<void>;
-  async sendMessage(
-    channel: string,
-    event: string,
-    message: string | object,
-  ): Promise<void>;
-  async sendMessage(
-    channel: string,
-    arg2: string | object,
-    message?: string | object,
-  ): Promise<void> {
+  async sendMessage(channel: string, event: string, message: string | object): Promise<void>;
+  async sendMessage(channel: string, arg2: string | object, message?: string | object): Promise<void> {
     if (typeof arg2 === 'string' && message) {
-      console.warn(
-        `NoOpProvider: sendMessage() called for channel: ${channel} with event: ${arg2}`,
-        message,
-      );
+      console.warn(`NoOpProvider: sendMessage() called for channel: ${channel} with event: ${arg2}`, message);
     } else {
-      console.warn(
-        `NoOpProvider: sendMessage() called for channel: ${channel}`,
-        arg2,
-      );
+      console.warn(`NoOpProvider: sendMessage() called for channel: ${channel}`, arg2);
     }
   }
 
-  subscribe(
-    channel: string,
-    callback: (message: string | object, metadata?: MessageMetadata) => void,
-  ): void;
+  subscribe(channel: string, callback: (message: string | object, metadata?: MessageMetadata) => void): void;
   subscribe(
     channel: string,
     event: string | string[] | object,
@@ -56,17 +39,11 @@ export class NoOpProvider implements ProviderInterface {
   ): void;
   subscribe(
     channel: string,
-    arg2:
-      | string
-      | string[]
-      | object
-      | ((message: string | object, metadata?: MessageMetadata) => void),
+    arg2: string | string[] | object | ((message: string | object, metadata?: MessageMetadata) => void),
     callback?: (message: string | object, metadata?: MessageMetadata) => void,
   ): void {
     if (typeof callback === 'function') {
-      console.warn(
-        `NoOpProvider: subscribe() called for channel: ${channel} with event: ${arg2}`,
-      );
+      console.warn(`NoOpProvider: subscribe() called for channel: ${channel} with event: ${arg2}`);
       callback('NoOpProvider: subscribe() called');
     } else if (typeof arg2 === 'function') {
       console.warn(`NoOpProvider: subscribe() called for channel: ${channel}`);
@@ -78,13 +55,9 @@ export class NoOpProvider implements ProviderInterface {
   async unsubscribe(channel: string, event?: string): Promise<void>;
   async unsubscribe(channel: string, event?: string): Promise<void> {
     if (event) {
-      console.warn(
-        `NoOpProvider: unsubscribe() called for channel: ${channel} with event: ${event}`,
-      );
+      console.warn(`NoOpProvider: unsubscribe() called for channel: ${channel} with event: ${event}`);
     } else {
-      console.warn(
-        `NoOpProvider: unsubscribe() called for channel: ${channel}`,
-      );
+      console.warn(`NoOpProvider: unsubscribe() called for channel: ${channel}`);
     }
   }
 
@@ -94,42 +67,29 @@ export class NoOpProvider implements ProviderInterface {
   }
 
   async enterPresence(channel: string, user: string): Promise<void> {
-    console.warn(
-      `NoOpProvider: enterPresence() called for channel: ${channel} by user: ${user}`,
-    );
+    console.warn(`NoOpProvider: enterPresence() called for channel: ${channel} by user: ${user}`);
   }
 
   async updatePresence(channel: string, user: string | object): Promise<void> {
-    console.warn(
-      `NoOpProvider: updatePresence() called for channel: ${channel} by user: ${user}`,
-    );
+    console.warn(`NoOpProvider: updatePresence() called for channel: ${channel} by user: ${user}`);
     return Promise.resolve();
   }
 
   async leavePresence(channel: string, user: string): Promise<void> {
-    console.warn(
-      `NoOpProvider: leavePresence() called for channel: ${channel} by user: ${user}`,
-    );
+    console.warn(`NoOpProvider: leavePresence() called for channel: ${channel} by user: ${user}`);
   }
   async presenceHistory(channel: string): Promise<PresenceMember[]> {
-    console.warn(
-      `NoOpProvider: presenceHistory() called for channel: ${channel}`,
-    );
+    console.warn(`NoOpProvider: presenceHistory() called for channel: ${channel}`);
     return Promise.resolve([]); // Return an empty presence list
   }
 
   async history(channel: string, options?: HistoryOptions): Promise<Message[]> {
-    console.warn(
-      `NoOpProvider: history() called for channel: ${channel} with options:`,
-      options,
-    );
+    console.warn(`NoOpProvider: history() called for channel: ${channel} with options:`, options);
     return Promise.resolve([]); // Return an empty message history
   }
 
   async rewind(channel: string, count: number): Promise<Message[]> {
-    console.warn(
-      `NoOpProvider: rewind() called for channel: ${channel} with count: ${count}`,
-    );
+    console.warn(`NoOpProvider: rewind() called for channel: ${channel} with count: ${count}`);
     return Promise.resolve([]); // Return an empty message history
   }
 
@@ -143,22 +103,20 @@ export class NoOpProvider implements ProviderInterface {
   }
 
   setCustomData?(data: object): void {
-    console.warn(`NoOpProvider: setCustomData() called with data:`, data);
+    console.warn(`NoOpProvider: setCustomData() called with data: ${data}`);
   }
 
   async getCurrentPresence?(channel: string): Promise<PresenceMember[]> {
-    console.warn(
-      `NoOpProvider: getCurrentPresence() called for channel: ${channel}`,
-    );
+    console.warn(`NoOpProvider: getCurrentPresence() called for channel: ${channel}`);
     return []; // Return an empty presence list
   }
 
   onError?(callback: (error: Error) => void): void {
-    console.warn(`NoOpProvider: onError() called`);
+    console.warn('NoOpProvider: onError() called');
     callback(new Error('NoOpProvider: onError() called'));
   }
 
   async reconnect?(): Promise<void> {
-    console.warn(`NoOpProvider: reconnect() called`);
+    console.warn('NoOpProvider: reconnect() called');
   }
 }
