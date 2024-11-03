@@ -6,6 +6,15 @@
 ### 🧹 Chore
 
 * **main:** release react-sdk 0.0.2-experimental ([56765c5](https://github.com/open-socket/js-sdk/commit/56765c548b801648b07e9419a7af08f4ce6d6b2f))
+* **main:** release react-sdk 0.0.3-experimental ([d072a1f](https://github.com/open-socket/js-sdk/commit/d072a1f302641f94dc3f13a59a1c71b80fb34155))
+* release main ([b46d42f](https://github.com/open-socket/js-sdk/commit/b46d42f3f9156c3be395dc0f9a657bdf29c5300b))
+
+## [0.0.3-experimental](https://github.com/open-socket/js-sdk/compare/react-sdk-v0.0.2-experimental...react-sdk-v0.0.3-experimental) (2024-11-03)
+
+
+### 🧹 Chore
+
+* **main:** release react-sdk 0.0.2-experimental ([56765c5](https://github.com/open-socket/js-sdk/commit/56765c548b801648b07e9419a7af08f4ce6d6b2f))
 * release main ([b46d42f](https://github.com/open-socket/js-sdk/commit/b46d42f3f9156c3be395dc0f9a657bdf29c5300b))
 
 ## [0.0.2-experimental](https://github.com/open-socket/js-sdk/compare/react-sdk-v0.0.1-experimental...react-sdk-v0.0.2-experimental) (2024-11-03)
