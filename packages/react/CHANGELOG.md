@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.0.5-experimental](https://github.com/open-socket/js-sdk/compare/react-v0.0.4-experimental...react-v0.0.5-experimental) (2024-11-03)
+
+
+### 🐛 Bug Fixes
+
+* updated publish command ([83053bd](https://github.com/open-socket/js-sdk/commit/83053bd392a9d10275a8ce5022b17eccff90707c))
+
 ## [0.0.4-experimental](https://github.com/open-socket/js-sdk/compare/react-v0.0.3-experimental...react-v0.0.4-experimental) (2024-11-03)
 
 
