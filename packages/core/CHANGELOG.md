@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.0.7-experimental](https://github.com/open-socket/js-sdk/compare/core-js-v0.0.6-experimental...core-js-v0.0.7-experimental) (2024-11-03)
+
+
+### 🐛 Bug Fixes
+
+* typedoc updated ([fcfd4dd](https://github.com/open-socket/js-sdk/commit/fcfd4dd8153e5eb33be2f14fa16f6aa7883607be))
+
 ## [0.0.6-experimental](https://github.com/open-socket/js-sdk/compare/core-js-v0.0.5-experimental...core-js-v0.0.6-experimental) (2024-11-03)
 
 
