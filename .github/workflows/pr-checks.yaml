@@ -28,7 +28,7 @@ jobs:
           cache: 'npm'
 
       - name: Install
-        run: npm ci
+        run: npm i
 
       - name: Build
         run: npm run build
@@ -58,7 +58,7 @@ jobs:
           cache: 'npm'
 
       - name: Install
-        run: npm ci
+        run: npm i
 
       - name: Install
         run: npm run build
@@ -98,7 +98,7 @@ jobs:
   #         cache: 'npm'
 
   #     - name: Install
-  #       run: npm ci
+  #       run: npm i
 
   #     - name: Build
   #       run: npm run build
