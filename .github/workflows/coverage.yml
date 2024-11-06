@@ -32,7 +32,7 @@ jobs:
 
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v3
-        # with:
-        #   token: ${{ secrets.CODECOV_TOKEN }}
-        #   slug: '@opensocket/js-sdk'
-        #   files: ./coverage/clover.xml,./coverage/coverage-final.json,./coverage/lcov.info
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          # slug: '@opensocket/js-sdk'
+          # files: ./coverage/clover.xml,./coverage/coverage-final.json,./coverage/lcov.info
