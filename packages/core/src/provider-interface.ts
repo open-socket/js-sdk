@@ -1,4 +1,5 @@
 export interface ProviderInterface {
+  name: string;
   /**
    * Establishes a connection to the provider.
    * @returns A promise that resolves once the connection is established.

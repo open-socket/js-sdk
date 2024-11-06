@@ -8,6 +8,7 @@ import type {
 } from './provider-interface';
 
 export class NoOpProvider implements ProviderInterface {
+  name: string = 'NoOpProvider';
   async connect() {
     console.warn('NoOpProvider: connect() called');
   }
