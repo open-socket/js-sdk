@@ -16,7 +16,6 @@ jobs:
     strategy:
       matrix:
         node-version:
-          - 14.x
           - 16.x
           - 20.x
           - 22.x
@@ -46,9 +45,17 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+
+      # Extract Node.js version from .nvmrc
+      - name: Get Node.js version from .nvmrc
+        id: node_version
+        run: |
+          NODE_VERSION=$(cat .nvmrc)
+          echo "NODE_VERSION=$NODE_VERSION" >> $GITHUB_ENV
+
       - uses: actions/setup-node@v4
         with:
-          node-version: 22
+          node-version: ${{ env.NODE_VERSION }}
           cache: 'npm'
 
       - name: Install
@@ -79,10 +86,16 @@ jobs:
 
   #   steps:
   #     - uses: actions/checkout@v4
+  #     # Extract Node.js version from .nvmrc
+  #     - name: Get Node.js version from .nvmrc
+  #       id: node_version
+  #       run: |
+  #         NODE_VERSION=$(cat .nvmrc)
+  #         echo "NODE_VERSION=$NODE_VERSION" >> $GITHUB_ENV
   #     - uses: actions/setup-node@v4
   #       with:
   #         # we need 'fetch' for this test, which is only in 18
-  #         node-version: 22
+  #         node-version: ${{ env.NODE_VERSION }}
   #         cache: 'npm'
 
   #     - name: Install

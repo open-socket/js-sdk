@@ -11,10 +11,18 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+
+      # Extract Node.js version from .nvmrc
+      - name: Get Node.js version from .nvmrc
+        id: node_version
+        run: |
+          NODE_VERSION=$(cat .nvmrc)
+          echo "NODE_VERSION=$NODE_VERSION" >> $GITHUB_ENV
+
       - uses: actions/setup-node@v4
         with:
           registry-url: 'https://registry.npmjs.org'
-          node-version: 22
+          node-version: ${{ env.NODE_VERSION }}
           cache: 'npm'
 
       - name: Install

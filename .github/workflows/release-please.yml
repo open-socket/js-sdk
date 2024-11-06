@@ -41,10 +41,19 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
+
+      # Extract Node.js version from .nvmrc
+      - name: Get Node.js version from .nvmrc
+        id: node_version
+        run: |
+          NODE_VERSION=$(cat .nvmrc)
+          echo "NODE_VERSION=$NODE_VERSION" >> $GITHUB_ENV
+
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 22
+          node-version: ${{ env.NODE_VERSION }}
+
       - name: Generate SBOM
         run: |
           npm install -g npm@^10.2.0
@@ -63,12 +72,21 @@ jobs:
       # The logic below handles the npm publication:
       - name: Checkout Repository
         uses: actions/checkout@v4
+
+      # Extract Node.js version from .nvmrc
+      - name: Get Node.js version from .nvmrc
+        id: node_version
+        run: |
+          NODE_VERSION=$(cat .nvmrc)
+          echo "NODE_VERSION=$NODE_VERSION" >> $GITHUB_ENV
+
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 22
+          node-version: ${{ env.NODE_VERSION }}
           registry-url: 'https://registry.npmjs.org'
           cache: 'npm'
+
       - name: Build Packages
         run: |
           npm ci
