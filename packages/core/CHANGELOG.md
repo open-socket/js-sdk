@@ -1,5 +1,26 @@
 # Changelog
 
+## [1.3.0-experimental](https://github.com/open-socket/js-sdk/compare/core-js-v1.2.2-experimental...core-js-v1.3.0-experimental) (2024-11-06)
+
+
+### ✨ New Features
+
+* imporved git actions ([91b8ba7](https://github.com/open-socket/js-sdk/commit/91b8ba7523f01fb61a1ddaed06c45bfddddc238b))
+
+
+### 🐛 Bug Fixes
+
+* git actions for codecov -- attempt 6 ([cc0a15c](https://github.com/open-socket/js-sdk/commit/cc0a15cc35fd1cf6cd37442bd5e42d3a97aa3735))
+* git actions for codecov -- attempt 7 ([f3010b6](https://github.com/open-socket/js-sdk/commit/f3010b6b4eee446f6c97529498129d929b09d56b))
+* git actions for codecov -- attempt 8 ([92fca46](https://github.com/open-socket/js-sdk/commit/92fca46676d2e406b50bfacd3dafb5277bb07fb1))
+* git actions for codecov -- attempt 9 ([9c0d949](https://github.com/open-socket/js-sdk/commit/9c0d94994529c190fe0a11bc7cce895468c6720d))
+* package lockfile issues ([2e5c836](https://github.com/open-socket/js-sdk/commit/2e5c8362ae10e4af70d7943068e229581c0c5dc0))
+
+
+### 🧹 Chore
+
+* should upgrade coverage status ([f0bfaf1](https://github.com/open-socket/js-sdk/commit/f0bfaf13d5468eccd3e2ef1a67733976328f46f5))
+
 ## [1.2.2-experimental](https://github.com/open-socket/js-sdk/compare/core-js-v1.2.1-experimental...core-js-v1.2.2-experimental) (2024-11-06)
 
 
