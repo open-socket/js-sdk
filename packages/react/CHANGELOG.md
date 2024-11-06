@@ -1,5 +1,19 @@
 # Changelog
 
+## [0.0.10-experimental](https://github.com/open-socket/js-sdk/compare/react-v0.0.9-experimental...react-v0.0.10-experimental) (2024-11-06)
+
+
+### 🐛 Bug Fixes
+
+* package lockfile issues ([def5efd](https://github.com/open-socket/js-sdk/commit/def5efd3570ab0a6146e4c9cf3eaa14a59c9bbdc))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * devDependencies
+    * @opensocket/core-js bumped from ^1.2.2-experimental to ^1.3.0-experimental
+
 ## [0.0.9-experimental](https://github.com/open-socket/js-sdk/compare/react-v0.0.8-experimental...react-v0.0.9-experimental) (2024-11-06)
 
 
