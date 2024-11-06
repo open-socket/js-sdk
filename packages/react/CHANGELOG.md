@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.0.14-experimental](https://github.com/open-socket/js-sdk/compare/react-v0.0.13-experimental...react-v0.0.14-experimental) (2024-11-06)
+
+
+### 🐛 Bug Fixes
+
+* updated peer deps + release-please ([1ab8600](https://github.com/open-socket/js-sdk/commit/1ab86008f444a53bcd63c75338435553cf6f908b))
+
 ## [0.0.13-experimental](https://github.com/open-socket/js-sdk/compare/react-v0.0.12-experimental...react-v0.0.13-experimental) (2024-11-06)
 
 
