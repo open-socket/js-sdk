@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.1](https://github.com/open-socket/js-sdk/compare/core-js-v1.1.0...core-js-v1.1.1) (2024-11-06)
+
+
+### 🧹 Chore
+
+* release main ([bd3258d](https://github.com/open-socket/js-sdk/commit/bd3258d3dcd8d4fd5d6b0674287ea1916a8f98f4))
+
 ## [1.1.0](https://github.com/open-socket/js-sdk/compare/core-js-v1.0.0...core-js-v1.1.0) (2024-11-06)
 
 
