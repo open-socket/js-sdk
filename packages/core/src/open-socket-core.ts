@@ -66,6 +66,7 @@ class OpenSocketCore {
    */
   async connect(): Promise<void> {
     if (this.isConnected) return;
+    return;
     try {
       await this.provider.connect();
       this.isConnected = true;
