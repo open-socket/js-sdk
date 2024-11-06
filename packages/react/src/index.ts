@@ -1,5 +1,5 @@
 export * from '@opensocket/core-js';
-export * from './hooks/useChannel';
-export * from './hooks/usePresence';
+export * from './hooks/use-channel';
+export * from './hooks/use-presence';
 import { OpenSocket } from '@opensocket/core-js';
 export default OpenSocket;
