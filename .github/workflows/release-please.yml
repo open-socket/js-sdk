@@ -42,7 +42,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
       - name: Generate SBOM
         run: |
           npm install -g npm@^10.2.0
@@ -64,19 +64,18 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
           registry-url: 'https://registry.npmjs.org'
           cache: 'npm'
       - name: Build Packages
         run: |
-          npm ci
+          npm i
           npm run build
 
       # need to publish all unpublished versions to NPM here
       # Our scripts only publish versions that do not already exist.
       - name: Publish to NPM
         env:
-          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
           NPM_TOKEN: ${{secrets.NPM_TOKEN}}
         run: npm run publish-all
 
