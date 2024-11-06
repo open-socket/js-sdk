@@ -46,6 +46,6 @@
     "react": "^18.2.0"
   },
   "devDependencies": {
-    "@opensocket/core-js": "^0.0.2-experimental"
+    "@opensocket/core-js": "^1.2.2-experimental"
   }
 }
