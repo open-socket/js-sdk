@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/open-socket/js-sdk/compare/core-js-v1.0.0...core-js-v1.1.0) (2024-11-06)
+
+
+### ✨ New Features
+
+* react sdk + coverage ([c539100](https://github.com/open-socket/js-sdk/commit/c539100fdfa5a56335cb230ce4e5356f5af501d1))
+
 ## 1.0.0 (2024-11-03)
 
 
