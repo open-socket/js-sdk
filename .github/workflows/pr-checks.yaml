@@ -11,7 +11,7 @@ on:
   merge_group:
 
 jobs:
-  build-test-lint:
+  lint-test-build:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -29,14 +29,14 @@ jobs:
       - name: Install
         run: npm i
 
-      - name: Build
-        run: npm run build
-
       - name: Lint
         run: npm run lint
 
       - name: Test
         run: npm run test
+
+      - name: Build
+        run: npm run build
 
   codecov-and-docs:
     runs-on: ubuntu-latest

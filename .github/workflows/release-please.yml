@@ -57,7 +57,7 @@ jobs:
       - name: Generate SBOM
         run: |
           npm install -g npm@^10.2.0
-          npm ci
+          npm i
           npm sbom --sbom-format=cyclonedx --omit=dev --omit=peer --workspace=${{matrix.release}} > bom.json
       - name: Attach SBOM to artifact
         env:
@@ -89,7 +89,7 @@ jobs:
 
       - name: Build Packages
         run: |
-          npm ci
+          npm i
           npm run build
 
       # need to publish all unpublished versions to NPM here
