@@ -1,5 +1,33 @@
 # Changelog
 
+## [0.0.7-experimental](https://github.com/open-socket/js-sdk/compare/react-v0.0.6-experimental...react-v0.0.7-experimental) (2024-11-06)
+
+
+### ✨ New Features
+
+* react sdk + coverage ([c539100](https://github.com/open-socket/js-sdk/commit/c539100fdfa5a56335cb230ce4e5356f5af501d1))
+
+
+### 🐛 Bug Fixes
+
+* linting fixed ([5bce5f7](https://github.com/open-socket/js-sdk/commit/5bce5f70ea6ab243605d47b3ce543f86fa00063a))
+* linting fixed ([f05383b](https://github.com/open-socket/js-sdk/commit/f05383badb9b1518ee96004d26b7d6ef68af58e1))
+* linting fixed ([d616090](https://github.com/open-socket/js-sdk/commit/d6160905ba3a70a8b3034f823fc83e3a16e19175))
+* typedoc updated ([fcfd4dd](https://github.com/open-socket/js-sdk/commit/fcfd4dd8153e5eb33be2f14fa16f6aa7883607be))
+
+
+### 🧹 Chore
+
+* **main:** release react 0.0.2-experimental ([200205d](https://github.com/open-socket/js-sdk/commit/200205daddb9fbf830578f3c32fc3ca4d2263240))
+* **main:** release react 0.0.3-experimental ([c0ded85](https://github.com/open-socket/js-sdk/commit/c0ded85ad29d1b1a1df44cad60142f4302b24ca6))
+* **main:** release react 0.0.4-experimental ([cfd306d](https://github.com/open-socket/js-sdk/commit/cfd306d7ad4658b5210efbb13f39a9092568e8e7))
+* **main:** release react 0.0.6-experimental ([cff3a44](https://github.com/open-socket/js-sdk/commit/cff3a4402f50b038c3b44eea1fd761331585b16b))
+* **main:** release react 0.0.7-experimental ([324e333](https://github.com/open-socket/js-sdk/commit/324e333c8d5d9196e0c3e017d42d833434975859))
+* release main ([f48b278](https://github.com/open-socket/js-sdk/commit/f48b2786eb38a53172560149031b8053f92736b4))
+* release main ([bd3258d](https://github.com/open-socket/js-sdk/commit/bd3258d3dcd8d4fd5d6b0674287ea1916a8f98f4))
+* release main ([9f2e7fa](https://github.com/open-socket/js-sdk/commit/9f2e7fad5b05997669d93743ded7becb18f2edc1))
+* release main ([784cbb9](https://github.com/open-socket/js-sdk/commit/784cbb9149e81cbeb10628d9602245d817c74988))
+
 ## [0.0.6-experimental](https://github.com/open-socket/js-sdk/compare/react-v0.0.5-experimental...react-v0.0.6-experimental) (2024-11-06)
 
 
