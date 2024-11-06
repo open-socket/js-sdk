@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.2-experimental](https://github.com/open-socket/js-sdk/compare/core-js-v1.2.1-experimental...core-js-v1.2.2-experimental) (2024-11-06)
+
+
+### 🧹 Chore
+
+* release main ([f7b36f3](https://github.com/open-socket/js-sdk/commit/f7b36f357b1c44945916bb323e2c1708eb5d3713))
+
 ## [1.2.1-experimental](https://github.com/open-socket/js-sdk/compare/core-js-v1.2.0-experimental...core-js-v1.2.1-experimental) (2024-11-06)
 
 
