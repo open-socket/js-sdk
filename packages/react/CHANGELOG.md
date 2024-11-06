@@ -1,5 +1,26 @@
 # Changelog
 
+## [0.0.3-experimental](https://github.com/open-socket/js-sdk/compare/react-v0.0.2-experimental...react-v0.0.3-experimental) (2024-11-06)
+
+
+### ✨ New Features
+
+* react sdk + coverage ([c539100](https://github.com/open-socket/js-sdk/commit/c539100fdfa5a56335cb230ce4e5356f5af501d1))
+
+
+### 🐛 Bug Fixes
+
+* linting fixed ([5bce5f7](https://github.com/open-socket/js-sdk/commit/5bce5f70ea6ab243605d47b3ce543f86fa00063a))
+* linting fixed ([f05383b](https://github.com/open-socket/js-sdk/commit/f05383badb9b1518ee96004d26b7d6ef68af58e1))
+* linting fixed ([d616090](https://github.com/open-socket/js-sdk/commit/d6160905ba3a70a8b3034f823fc83e3a16e19175))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * devDependencies
+    * @opensocket/core-js bumped from ^0.0.2-experimental to ^1.1.0
+
 ## [0.0.2-experimental](https://github.com/open-socket/js-sdk/compare/react-v0.0.1-experimental...react-v0.0.2-experimental) (2024-11-03)
 
 
