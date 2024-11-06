@@ -59,7 +59,7 @@ jobs:
       - uses: actions/upload-artifact@v4
         if: ${{ !cancelled() }}
         with:
-          name: unit-test-report
+          name: coverage
           path: coverage/
           retention-days: 5
 
@@ -71,6 +71,7 @@ jobs:
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
           slug: '@opensocket/js-sdk'
+          files: ./coverage/clover.xml,./coverage/coverage-final.json,./coverage/lcov.info,./coverage/lcov-report
 
   # e2e:
   #   runs-on: ubuntu-latest
