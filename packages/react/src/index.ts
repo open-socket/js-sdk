@@ -1,5 +1,5 @@
-const App = () => {
-  return 'Hello from OpenSocket React SDK!';
-};
-
-export default App;
+export * from '@opensocket/core-js';
+export * from './hooks/useChannel';
+export * from './hooks/usePresence';
+import { OpenSocket } from '@opensocket/core-js';
+export default OpenSocket;

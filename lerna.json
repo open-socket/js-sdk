@@ -1,4 +1,0 @@
-{
-  "packages": ["packages/react", "packages/core"],
-  "version": "independent"
-}

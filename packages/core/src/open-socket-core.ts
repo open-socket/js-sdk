@@ -379,3 +379,4 @@ class OpenSocketCore {
 
 // Export a singleton instance
 export const OpenSocket = OpenSocketCore.getInstance();
+export default OpenSocket;

@@ -27,7 +27,7 @@ jobs:
         if: ${{ !cancelled() }}
         with:
           name: unit-test-report
-          path: unit_test_reports/
+          path: coverage
           retention-days: 5
 
       - name: Upload coverage reports to Codecov

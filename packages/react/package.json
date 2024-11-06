@@ -15,8 +15,8 @@
     "lint": "eslint ./",
     "lint:fix": "eslint ./ --fix",
     "clean": "shx rm -rf ./dist",
-    "build:esm": "esbuild src/index.ts --bundle --external:react --external:@opensocket/core-js --sourcemap --target=es2015 --platform=browser --format=esm --outfile=./dist/esm/index.js --analyze",
-    "build:cjs": "esbuild src/index.ts --bundle --external:react --external:@opensocket/core-js --sourcemap --target=es2015 --platform=browser --format=cjs --outfile=./dist/cjs/index.js --analyze",
+    "build:esm": "esbuild src/index.ts --bundle --external:react --sourcemap --target=es2015 --platform=browser --format=esm --outfile=./dist/esm/index.js --analyze",
+    "build:cjs": "esbuild src/index.ts --bundle --external:react --sourcemap --target=es2015 --platform=browser --format=cjs --outfile=./dist/cjs/index.js --analyze",
     "build:rollup-types": "rollup -c ../../rollup.config.mjs",
     "build": "npm run clean && npm run build:esm && npm run build:cjs && npm run build:rollup-types",
     "postbuild": "shx cp ./../../package.esm.json ./dist/esm/package.json",
@@ -42,6 +42,10 @@
     "url": "https://github.com/open-socket/js-sdk/issues"
   },
   "homepage": "https://github.com/open-socket/js-sdk#readme",
-  "peerDependencies": {},
-  "devDependencies": {}
+  "peerDependencies": {
+    "react": "^18.2.0"
+  },
+  "devDependencies": {
+    "@opensocket/core-js": "^0.0.2-experimental"
+  }
 }
