@@ -71,7 +71,7 @@ jobs:
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
           slug: '@opensocket/js-sdk'
-          files: ./coverage/clover.xml,./coverage/coverage-final.json,./coverage/lcov.info,./coverage/lcov-report
+          files: ./coverage/clover.xml,./coverage/coverage-final.json,./coverage/lcov.info
 
   # e2e:
   #   runs-on: ubuntu-latest
