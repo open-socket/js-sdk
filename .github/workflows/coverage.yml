@@ -21,8 +21,10 @@ jobs:
 
       - name: Install
         run: npm ci
+
       - name: Test
         run: npm run test
+
       - uses: actions/upload-artifact@v4
         if: ${{ !cancelled() }}
         with:
@@ -34,4 +36,3 @@ jobs:
         uses: codecov/codecov-action@v4
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
-          # files: ./coverage/clover.xml,./coverage/coverage-final.json,./coverage/lcov.info

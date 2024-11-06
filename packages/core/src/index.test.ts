@@ -3,7 +3,6 @@ import type { ProviderInterface } from './provider-interface';
 
 // Mock implementation of the ProviderInterface
 const mockProvider: jest.Mocked<ProviderInterface> = {
-  name: 'MockProvider',
   connect: jest.fn().mockResolvedValue(undefined),
   disconnect: jest.fn().mockResolvedValue(undefined),
   isReady: jest.fn().mockReturnValue(true),

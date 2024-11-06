@@ -6,6 +6,7 @@ on:
 permissions:
   contents: write
   pull-requests: write
+
 name: Run Release Please
 jobs:
   release-please:
@@ -69,7 +70,7 @@ jobs:
           cache: 'npm'
       - name: Build Packages
         run: |
-          npm i
+          npm ci
           npm run build
 
       # need to publish all unpublished versions to NPM here

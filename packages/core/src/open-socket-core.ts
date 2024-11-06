@@ -60,10 +60,6 @@ class OpenSocketCore {
     return this.provider;
   }
 
-  async getProviderName(): Promise<string> {
-    return this.provider.name;
-  }
-
   /**
    * Connects to the provider.
    * @returns {Promise<void>}
