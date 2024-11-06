@@ -1,6 +1,6 @@
 {
   "name": "@opensocket/react",
-  "version": "0.0.4-experimental",
+  "version": "0.0.6-experimental",
   "description": "OpenSocket SDK For React",
   "main": "./dist/cjs/index.js",
   "exports": {
