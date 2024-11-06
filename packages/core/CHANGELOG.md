@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.1-experimental](https://github.com/open-socket/js-sdk/compare/core-js-v1.3.0-experimental...core-js-v1.3.1-experimental) (2024-11-06)
+
+
+### 🐛 Bug Fixes
+
+* package lockfile issues -- attempt 6 ([41b75ae](https://github.com/open-socket/js-sdk/commit/41b75ae45512ae5490dcfd44a1e8c6d05723e9d4))
+
 ## [1.3.0-experimental](https://github.com/open-socket/js-sdk/compare/core-js-v1.2.2-experimental...core-js-v1.3.0-experimental) (2024-11-06)
 
 
