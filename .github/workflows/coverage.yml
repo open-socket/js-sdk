@@ -1,6 +1,4 @@
-# Generates baseline code coverage
-
-name: coverage
+name: Coverage
 
 on:
   push:

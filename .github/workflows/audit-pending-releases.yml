@@ -1,9 +1,10 @@
+name: Audit Pending Releases
+
 on:
   push:
     branches:
       - 'release-please**'
 
-name: Audit Pending Releases
 jobs:
   npm-release:
     runs-on: ubuntu-latest
