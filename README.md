@@ -14,6 +14,10 @@
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fopen-socket%2Fjs-sdk.svg?type=shield&issueType=license)](https://app.fossa.com/projects/git%2Bgithub.com%2Fopen-socket%2Fjs-sdk?ref=badge_shield&issueType=license)
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fopen-socket%2Fjs-sdk.svg?type=shield&issueType=security)](https://app.fossa.com/projects/git%2Bgithub.com%2Fopen-socket%2Fjs-sdk?ref=badge_shield&issueType=security)
 [![Build Status](https://github.com/open-socket/js-sdk/actions/workflows/build-status.yml/badge.svg?branch=main)](https://github.com/open-socket/js-sdk/actions/workflows/build-status.yml)
+[![npm version](https://img.shields.io/npm/v/@opensocket/react?style=flat-square)](https://www.npmjs.com/package/@opensocket/react)
+![NPM Downloads](https://img.shields.io/npm/dm/@opensocket/react)
+
+
 ## 👋 Hey there! Thanks for checking out the OpenSocket JavaScript SDKs
 
 ### What is OpenSocket?
