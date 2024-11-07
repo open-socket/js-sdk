@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.0.15-experimental](https://github.com/open-socket/js-sdk/compare/react-v0.0.14-experimental...react-v0.0.15-experimental) (2024-11-07)
+
+
+### 🐛 Bug Fixes
+
+* trial release -- attempt 1 ([f06a554](https://github.com/open-socket/js-sdk/commit/f06a554857c4bc9d1434376507bc1f4e96cea6c3))
+
 ## [0.0.14-experimental](https://github.com/open-socket/js-sdk/compare/react-v0.0.13-experimental...react-v0.0.14-experimental) (2024-11-06)
 
 
