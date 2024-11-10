@@ -1,5 +1,37 @@
 # Changelog
 
+## [1.5.2-experimental](https://github.com/open-socket/js-sdk/compare/core-js-v1.5.1-experimental...core-js-v1.5.2-experimental) (2024-11-10)
+
+
+### 🧹 Chore
+
+* release main ([0fc7dc4](https://github.com/open-socket/js-sdk/commit/0fc7dc42cc4f0ab3d87aeb28b39ed470f8147f60))
+
+## [1.5.1-experimental](https://github.com/open-socket/js-sdk/compare/core-js-v1.5.0-experimental...core-js-v1.5.1-experimental) (2024-11-10)
+
+
+### 🧹 Chore
+
+* release main ([e404fbb](https://github.com/open-socket/js-sdk/commit/e404fbb98a178b5b11c16d958c67d919029cdded))
+
+## [1.5.0-experimental](https://github.com/open-socket/js-sdk/compare/core-js-v1.4.0-experimental...core-js-v1.5.0-experimental) (2024-11-10)
+
+
+### ✨ New Features
+
+* standardize apis ([844b6d9](https://github.com/open-socket/js-sdk/commit/844b6d92f5bcb74262e8909d98f43646d0dac727))
+
+
+### 🐛 Bug Fixes
+
+* linting fixed and testing removed ([3b65852](https://github.com/open-socket/js-sdk/commit/3b65852b428247213544e2b62a2db44773757794))
+* linting fixed and testing removed ([eb99a9e](https://github.com/open-socket/js-sdk/commit/eb99a9e15f74ac285b8dff65534ecf159e2c2e95))
+
+
+### 🧹 Chore
+
+* release main ([05a5664](https://github.com/open-socket/js-sdk/commit/05a5664808eb28d26854c74618b920a54fa5d1aa))
+
 ## [1.4.0-experimental](https://github.com/open-socket/js-sdk/compare/core-js-v1.3.5-experimental...core-js-v1.4.0-experimental) (2024-11-06)
 
 
