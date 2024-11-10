@@ -1,5 +1,32 @@
 # Changelog
 
+## [0.0.15-experimental](https://github.com/open-socket/js-sdk/compare/react-v0.0.14-experimental...react-v0.0.15-experimental) (2024-11-10)
+
+
+### ✨ New Features
+
+* standardize apis ([844b6d9](https://github.com/open-socket/js-sdk/commit/844b6d92f5bcb74262e8909d98f43646d0dac727))
+
+
+### 🐛 Bug Fixes
+
+* npm release failed for path because of unused path ([8b0d2ac](https://github.com/open-socket/js-sdk/commit/8b0d2ac0432a30c73a453dd3a32edb711b4ca724))
+* npm release failed for path because of unused path ([f9834ce](https://github.com/open-socket/js-sdk/commit/f9834cef537341b3d1cdf656d10c3094ab712a26))
+* trial release -- attempt 1 ([f06a554](https://github.com/open-socket/js-sdk/commit/f06a554857c4bc9d1434376507bc1f4e96cea6c3))
+
+
+### 🧹 Chore
+
+* release main ([9c70951](https://github.com/open-socket/js-sdk/commit/9c709518298a2cb0cb12798568e4cae178b7c094))
+* release main ([35ff199](https://github.com/open-socket/js-sdk/commit/35ff19963b128b7bf1ef6891a97e8d66160a181d))
+* release main ([f05a687](https://github.com/open-socket/js-sdk/commit/f05a687017b32f68940ce563638c2a90f1f82020))
+* release main ([e766aa0](https://github.com/open-socket/js-sdk/commit/e766aa071ab46208d86d08c8a1a12a2f0ed33718))
+* release main ([0fc7dc4](https://github.com/open-socket/js-sdk/commit/0fc7dc42cc4f0ab3d87aeb28b39ed470f8147f60))
+* release main ([e404fbb](https://github.com/open-socket/js-sdk/commit/e404fbb98a178b5b11c16d958c67d919029cdded))
+* release main ([05a5664](https://github.com/open-socket/js-sdk/commit/05a5664808eb28d26854c74618b920a54fa5d1aa))
+* typebuild abandon to get deployment ([9514d3f](https://github.com/open-socket/js-sdk/commit/9514d3f497e0e5672afeea6ca5c309e863077454))
+* typebuild abandon to get deployment ([239a684](https://github.com/open-socket/js-sdk/commit/239a68488b5221bbca2e5a4ec16481f11d109ee7))
+
 ## [0.0.14-experimental](https://github.com/open-socket/js-sdk/compare/react-v0.0.13-experimental...react-v0.0.14-experimental) (2024-11-06)
 
 
