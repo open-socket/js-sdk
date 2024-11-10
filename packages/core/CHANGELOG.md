@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.5.4-experimental](https://github.com/open-socket/js-sdk/compare/core-js-v1.5.3-experimental...core-js-v1.5.4-experimental) (2024-11-10)
+
+
+### 🐛 Bug Fixes
+
+* npm release failed for path because of unused path ([8b0d2ac](https://github.com/open-socket/js-sdk/commit/8b0d2ac0432a30c73a453dd3a32edb711b4ca724))
+
 ## [1.5.3-experimental](https://github.com/open-socket/js-sdk/compare/core-js-v1.5.2-experimental...core-js-v1.5.3-experimental) (2024-11-10)
 
 
