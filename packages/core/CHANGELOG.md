@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.5.1-experimental](https://github.com/open-socket/js-sdk/compare/core-js-v1.5.0-experimental...core-js-v1.5.1-experimental) (2024-11-10)
+
+
+### 🧹 Chore
+
+* release main ([e404fbb](https://github.com/open-socket/js-sdk/commit/e404fbb98a178b5b11c16d958c67d919029cdded))
+
 ## [1.5.0-experimental](https://github.com/open-socket/js-sdk/compare/core-js-v1.4.0-experimental...core-js-v1.5.0-experimental) (2024-11-10)
 
 
