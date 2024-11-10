@@ -1,5 +1,5 @@
 import { NoOpProvider } from './no-op-provider';
-import { ProviderInterface } from './provider';
+import type { ProviderInterface } from './provider';
 
 export class SingletonProvider {
   private static instance: ProviderInterface;

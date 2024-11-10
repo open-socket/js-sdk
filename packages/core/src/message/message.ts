@@ -1,3 +1,4 @@
+import type { JsonValue } from '../types';
 /**
  * Contains an individual message that is sent to, or received from, Ably.
  */
@@ -13,7 +14,7 @@ export interface MessageProps {
   /**
    * The message payload, if provided.
    */
-  data?: any;
+  data?: JsonValue;
   /**
    * This is typically empty, as all messages received from Ably are automatically decoded client-side using this value. However, if the message encoding cannot be processed, this attribute contains the remaining transformations not applied to the `data` payload.
    */
@@ -21,7 +22,7 @@ export interface MessageProps {
   /**
    * A JSON object of arbitrary key-value pairs that may contain metadata, and/or ancillary payloads. Valid payloads include `push`, `delta`, `ref` and `headers`.
    */
-  extras?: any;
+  extras?: JsonValue;
   /**
    * Unique ID assigned by Ably to this message.
    */
@@ -83,50 +84,51 @@ export interface Operation {
 }
 
 /**
- * The namespace containing the different types of message actions.
+ * Message action has not been set.
  */
-declare namespace MessageActions {
-  /**
-   * Message action has not been set.
-   */
-  type MESSAGE_UNSET = 'message.unset';
-  /**
-   * Message action for a newly created message.
-   */
-  type MESSAGE_CREATE = 'message.create';
-  /**
-   * Message action for an updated message.
-   */
-  type MESSAGE_UPDATE = 'message.update';
-  /**
-   * Message action for a deleted message.
-   */
-  type MESSAGE_DELETE = 'message.delete';
-  /**
-   * Message action for a newly created annotation.
-   */
-  type ANNOTATION_CREATE = 'annotation.create';
-  /**
-   * Message action for a deleted annotation.
-   */
-  type ANNOTATION_DELETE = 'annotation.delete';
-  /**
-   * Message action for a meta-message that contains channel occupancy information.
-   */
-  type META_OCCUPANCY = 'meta.occupancy';
-}
+export type MESSAGE_UNSET = 'message.unset';
 
 /**
- * Describes the possible action types used on an {@link Message}.
+ * Message action for a newly created message.
+ */
+export type MESSAGE_CREATE = 'message.create';
+
+/**
+ * Message action for an updated message.
+ */
+export type MESSAGE_UPDATE = 'message.update';
+
+/**
+ * Message action for a deleted message.
+ */
+export type MESSAGE_DELETE = 'message.delete';
+
+/**
+ * Message action for a newly created annotation.
+ */
+export type ANNOTATION_CREATE = 'annotation.create';
+
+/**
+ * Message action for a deleted annotation.
+ */
+export type ANNOTATION_DELETE = 'annotation.delete';
+
+/**
+ * Message action for a meta-message that contains channel occupancy information.
+ */
+export type META_OCCUPANCY = 'meta.occupancy';
+
+/**
+ * Describes the possible action types used on a Message.
  */
 export type MessageAction =
-  | MessageActions.MESSAGE_UNSET
-  | MessageActions.MESSAGE_CREATE
-  | MessageActions.MESSAGE_UPDATE
-  | MessageActions.MESSAGE_DELETE
-  | MessageActions.ANNOTATION_CREATE
-  | MessageActions.ANNOTATION_DELETE
-  | MessageActions.META_OCCUPANCY;
+  | MESSAGE_UNSET
+  | MESSAGE_CREATE
+  | MESSAGE_UPDATE
+  | MESSAGE_DELETE
+  | ANNOTATION_CREATE
+  | ANNOTATION_DELETE
+  | META_OCCUPANCY;
 
 /**
  * A message received from Ably.

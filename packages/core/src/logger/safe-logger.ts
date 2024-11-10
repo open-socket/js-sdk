@@ -41,7 +41,7 @@ export class SafeLogger implements Logger {
   private log(level: keyof Logger, ...args: unknown[]) {
     try {
       this.logger[level](...args);
-    } catch (error) {
+    } catch {
       this.fallbackLogger[level](...args);
     }
   }

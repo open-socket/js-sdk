@@ -2,7 +2,7 @@ import type { ProviderInterface } from '../../provider';
 import { ProviderStatus } from '../../provider';
 import type { PresenceMember, HistoryOptions } from '../../channel';
 import type { MessageMetadata, Message } from '../../message';
-import { JsonValue } from '../../types';
+import type { JsonValue } from '../../types';
 
 export class NoOpProvider implements ProviderInterface {
   status = ProviderStatus.READY;

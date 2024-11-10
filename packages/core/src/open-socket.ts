@@ -1,5 +1,7 @@
-import { ProviderInterface, ProviderMetadata, SingletonProvider } from './provider';
-import { DefaultLogger, Logger } from './logger';
+import type { ProviderInterface, ProviderMetadata } from './provider';
+import { SingletonProvider } from './provider';
+import { DefaultLogger } from './logger';
+import type { Logger } from './logger';
 import { Realtime } from './realtime';
 
 /**

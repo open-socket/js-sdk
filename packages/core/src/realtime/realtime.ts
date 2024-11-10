@@ -1,8 +1,9 @@
 import { SingletonProvider } from '../provider';
-import { Message, MessageMetadata } from '../message';
-import { HistoryOptions } from '../channel';
-import { JsonValue } from '../types';
-import { DefaultLogger, Logger } from '../logger';
+import type { Message, MessageMetadata } from '../message';
+import type { HistoryOptions } from '../channel';
+import type { JsonValue } from '../types';
+import { DefaultLogger } from '../logger';
+import type { Logger } from '../logger';
 import { ProviderFatalError, ProviderNotReadyError } from '../errors';
 
 /**
@@ -18,6 +19,7 @@ export class Realtime {
 
   /**
    * Retrieves the singleton instance of Realtime.
+   * @param {Logger} _logger - The logger to use for this instance.
    * @returns {Realtime} The instance of Realtime.
    */
   static getInstance(_logger?: Logger): Realtime {
@@ -64,7 +66,6 @@ export class Realtime {
 
   async sendMessage(channel: string, eventOrMessage: string | string[] | object, message?: string | object) {
     const provider = SingletonProvider.getProvider();
-    debugger;
     if (!provider?.isReady) {
       throw new ProviderNotReadyError('OpenSocket: Provider is not ready');
     }
