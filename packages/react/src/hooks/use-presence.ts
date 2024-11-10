@@ -12,12 +12,12 @@ export const usePresence = (channel: string, events?: string | string[]) => {
 
   useEffect(() => {
     if (events) {
-      OpenSocket.presence(channel, events, (presence) => {
+      OpenSocket.realtime.presence(channel, events, (presence) => {
         setPresence(presence);
       });
       return;
     } else {
-      OpenSocket.presence(channel, (presence) => {
+      OpenSocket.realtime.presence(channel, (presence) => {
         setPresence(presence);
       });
     }

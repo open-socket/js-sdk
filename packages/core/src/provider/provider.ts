@@ -1,4 +1,53 @@
+import type { Message, MessageMetadata } from '../message';
+import type { HistoryOptions, PresenceMember } from '../channel';
+import type { Metadata, JsonValue } from '../types';
+
+/**
+ * The state of the provider.
+ * Note that the provider's state is handled by the SDK.
+ */
+export enum ProviderStatus {
+  /**
+   * The provider has not been initialized and cannot yet evaluate flags.
+   */
+  NOT_READY = 'NOT_READY',
+
+  /**
+   * The provider is ready to resolve flags.
+   */
+  READY = 'READY',
+
+  /**
+   * The provider is in an error state and unable to evaluate flags.
+   */
+  ERROR = 'ERROR',
+
+  /**
+   * The provider's cached state is no longer valid and may not be up-to-date with the source of truth.
+   */
+  STALE = 'STALE',
+
+  /**
+   * The provider has entered an irrecoverable error state.
+   */
+  FATAL = 'FATAL',
+
+  /**
+   * The provider is reconciling its state with a context change.
+   */
+  RECONCILING = 'RECONCILING',
+}
+
+/**
+ * Static data about the provider.
+ */
+export interface ProviderMetadata extends Readonly<Metadata> {
+  readonly name: string;
+}
+
 export interface ProviderInterface {
+  readonly metadata: ProviderMetadata;
+  readonly status: ProviderStatus;
   /**
    * Establishes a connection to the provider.
    * @returns A promise that resolves once the connection is established.
@@ -15,7 +64,7 @@ export interface ProviderInterface {
    * Checks if the provider is ready for use.
    * @returns A boolean indicating if the provider is ready.
    */
-  isReady(): boolean;
+  get isReady(): boolean;
 
   /**
    * Sends a message to a specific channel.
@@ -39,7 +88,7 @@ export interface ProviderInterface {
    * @param channel - The channel to subscribe to.
    * @param callback - The callback function to handle incoming messages, with optional metadata.
    */
-  subscribe(channel: string, callback: (message: string | object, metadata?: MessageMetadata) => void): void;
+  subscribe(channel: string, callback: (message: Message, metadata?: MessageMetadata) => void): void;
 
   /**
    * Subscribes to a specific event on a channel.
@@ -50,7 +99,7 @@ export interface ProviderInterface {
   subscribe(
     channel: string,
     eventsOrOptions: string | string[] | object,
-    callback: (message: string | object, metadata?: MessageMetadata) => void,
+    callback: (message: Message, metadata?: MessageMetadata) => void,
   ): void;
 
   /**
@@ -142,7 +191,7 @@ export interface ProviderInterface {
    * @param event - The event name to listen for.
    * @param callback - The callback function to handle the event data.
    */
-  on?(event: string, callback: (data: EventData) => void): void;
+  on?(event: string, callback: (data: JsonValue) => void): void;
 
   /**
    * Removes an event listener for a custom provider event.
@@ -154,7 +203,7 @@ export interface ProviderInterface {
    * Sets custom data for the provider, if supported.
    * @param data - The custom data object.
    */
-  setCustomData?(data: CustomData): void;
+  setCustomData?(data: JsonValue): void;
 
   /**
    * Sets an error handler callback, if supported by the provider.
@@ -167,57 +216,4 @@ export interface ProviderInterface {
    * @returns A promise that resolves once the reconnection is successful.
    */
   reconnect?(): Promise<void>;
-}
-
-// Types for message history, presence, event data, and custom data
-export interface Message {
-  /** Unique identifier for the message. */
-  id: string;
-  /** Timestamp for when the message was sent. */
-  timestamp: number;
-  /** The data content of the message. */
-  data: string | object;
-  /** The channel from which the message was sent. */
-  channel: string;
-  /** The event name associated with the message, if any. */
-  event: string;
-}
-
-export interface HistoryOptions {
-  /** Maximum number of messages to retrieve. */
-  limit?: number;
-  /** Start time for message retrieval in milliseconds since epoch. */
-  start?: number;
-  /** End time for message retrieval in milliseconds since epoch. */
-  end?: number;
-  /** Whether to retrieve messages in reverse order. */
-  reverse?: boolean;
-}
-
-export interface PresenceMember {
-  /** Unique identifier for the user in the presence list. */
-  userId: string;
-  /** Timestamp for when the user joined the presence list. */
-  connectedAt: number;
-  /** The user's status (e.g., online, offline). */
-  status: string;
-  /** Additional properties that may be set by the provider. */
-  [key: string]: string | number | boolean; // Define more specific types if needed
-}
-
-// Define types for custom data and event data
-export interface CustomData {
-  [key: string]: string | number | boolean | object; // More specific as needed
-}
-
-export interface EventData {
-  [key: string]: string | number | boolean | object; // More specific as needed
-}
-
-// Define a new interface for message metadata
-export interface MessageMetadata {
-  timestamp?: number; // Optional timestamp for the message
-  userId?: string; // Optional user ID associated with the message
-  event?: string; // Optional event name associated with the message
-  [key: string]: string | number | boolean | undefined; // More specific types
 }

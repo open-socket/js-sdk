@@ -12,16 +12,16 @@ export const useChannel = (channelName: string, eventsOrOptions?: string | strin
 
   useEffect(() => {
     if (eventsOrOptions) {
-      OpenSocket.subscribe(channelName, eventsOrOptions, (message) => {
+      OpenSocket.realtime.subscribe(channelName, eventsOrOptions, (message) => {
         setState(message);
       });
     } else {
-      OpenSocket.subscribe(channelName, (message) => {
+      OpenSocket.realtime.subscribe(channelName, (message) => {
         setState(message);
       });
     }
     return () => {
-      OpenSocket.unsubscribe(channelName);
+      OpenSocket.realtime.unsubscribe(channelName);
     };
   }, [channelName, JSON.stringify(eventsOrOptions)]);
 

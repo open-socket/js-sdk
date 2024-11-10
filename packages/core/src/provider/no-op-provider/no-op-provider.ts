@@ -1,14 +1,13 @@
-import type {
-  ProviderInterface,
-  Message,
-  MessageMetadata,
-  EventData,
-  HistoryOptions,
-  PresenceMember,
-} from './provider-interface';
+import type { ProviderInterface } from '../../provider';
+import { ProviderStatus } from '../../provider';
+import type { PresenceMember, HistoryOptions } from '../../channel';
+import type { MessageMetadata, Message } from '../../message';
+import { JsonValue } from '../../types';
 
 export class NoOpProvider implements ProviderInterface {
-  name: string = 'NoOpProvider';
+  status = ProviderStatus.READY;
+  metadata = { name: 'NoOpProvider' };
+
   async connect() {
     console.warn('NoOpProvider: connect() called');
   }
@@ -17,7 +16,7 @@ export class NoOpProvider implements ProviderInterface {
     console.warn('NoOpProvider: disconnect() called');
   }
 
-  isReady(): boolean {
+  get isReady(): boolean {
     // Always return true for NoOpProvider
     return true;
   }
@@ -32,16 +31,16 @@ export class NoOpProvider implements ProviderInterface {
     }
   }
 
-  subscribe(channel: string, callback: (message: string | object, metadata?: MessageMetadata) => void): void;
+  subscribe(channel: string, callback: (message: Message, metadata?: MessageMetadata) => void): void;
   subscribe(
     channel: string,
     event: string | string[] | object,
-    callback: (message: string | object, metadata?: MessageMetadata) => void,
+    callback: (message: Message, metadata?: MessageMetadata) => void,
   ): void;
   subscribe(
     channel: string,
-    arg2: string | string[] | object | ((message: string | object, metadata?: MessageMetadata) => void),
-    callback?: (message: string | object, metadata?: MessageMetadata) => void,
+    arg2: string | string[] | object | ((message: Message, metadata?: MessageMetadata) => void),
+    callback?: (message: Message, metadata?: MessageMetadata) => void,
   ): void {
     if (typeof callback === 'function') {
       console.warn(`NoOpProvider: subscribe() called for channel: ${channel} with event: ${arg2}`);
@@ -94,7 +93,7 @@ export class NoOpProvider implements ProviderInterface {
     return Promise.resolve([]); // Return an empty message history
   }
 
-  on(event: string, callback: (data: EventData) => void): void {
+  on(event: string, callback: (data: JsonValue) => void): void {
     console.warn(`NoOpProvider: on() called for event: ${event}`);
     callback({ NoOpProvider: 'on() called' });
   }
@@ -103,9 +102,9 @@ export class NoOpProvider implements ProviderInterface {
     console.warn(`NoOpProvider: off() called for event: ${event}`);
   }
 
-  setCustomData?(data: object): void {
-    console.warn(`NoOpProvider: setCustomData() called with data: ${data}`);
-  }
+  // setCustomData?(data: object): void {
+  //   console.warn(`NoOpProvider: setCustomData() called with data: ${data}`);
+  // }
 
   async getCurrentPresence?(channel: string): Promise<PresenceMember[]> {
     console.warn(`NoOpProvider: getCurrentPresence() called for channel: ${channel}`);
