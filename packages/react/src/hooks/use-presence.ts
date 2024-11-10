@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { OpenSocket } from '@opensocket/core-js';
+import { OpenSocket, PresenceMember } from '@opensocket/core-js';
 
 /**
  * usePresence hook - return presence list on a given channel
@@ -8,17 +8,17 @@ import { OpenSocket } from '@opensocket/core-js';
  * @returns {Promise<object>} presence list
  */
 export const usePresence = (channel: string, events?: string | string[]) => {
-  const [presence, setPresence] = useState<object>({});
+  const [presence, setPresence] = useState<PresenceMember>({} as PresenceMember);
 
   useEffect(() => {
     if (events) {
       OpenSocket?.realtime?.presence(channel, events, (presence) => {
-        setPresence(presence);
+        setPresence(presence as PresenceMember);
       });
       return;
     } else {
       OpenSocket?.realtime?.presence(channel, (presence) => {
-        setPresence(presence);
+        setPresence(presence as PresenceMember);
       });
     }
     return;

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { OpenSocket } from '@opensocket/core-js';
+import { Message, OpenSocket } from '@opensocket/core-js';
 
 /**
  * useChannel hook - return message on a given channel
@@ -8,16 +8,16 @@ import { OpenSocket } from '@opensocket/core-js';
  * @returns {Promise<string | string[] | object>} message
  */
 export const useChannel = (channelName: string, eventsOrOptions?: string | string[] | object) => {
-  const [state, setState] = useState<string | string[] | object | undefined>(undefined);
+  const [state, setState] = useState<Message | undefined>(undefined);
 
   useEffect(() => {
     if (eventsOrOptions) {
       OpenSocket?.realtime?.subscribe(channelName, eventsOrOptions, (message) => {
-        setState(message);
+        setState(message as Message);
       });
     } else {
       OpenSocket?.realtime?.subscribe(channelName, (message) => {
-        setState(message);
+        setState(message as Message);
       });
     }
     return () => {
