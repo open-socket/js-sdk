@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
-import { OpenSocket, PresenceMember } from '@opensocket/core-js';
+import { OpenSocket } from '@opensocket/core-js';
+import type { PresenceMember } from '@opensocket/core-js';
 
 /**
  * usePresence hook - return presence list on a given channel

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
-import { Message, OpenSocket } from '@opensocket/core-js';
+import { OpenSocket } from '@opensocket/core-js';
+import type { Message } from '@opensocket/core-js';
 
 /**
  * useChannel hook - return message on a given channel
