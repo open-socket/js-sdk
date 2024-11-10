@@ -1,5 +1,9 @@
 # Changelog
 
+### Dependencies
+
+
+
 ## [0.0.16-experimental](https://github.com/open-socket/js-sdk/compare/react-v0.0.15-experimental...react-v0.0.16-experimental) (2024-11-10)
 
 

@@ -1,6 +1,6 @@
 {
   "name": "@opensocket/react",
-  "version": "0.0.16-experimental",
+  "version": "0.0.17-experimental",
   "description": "OpenSocket SDK For React",
   "files": [
     "dist"
