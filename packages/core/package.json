@@ -1,6 +1,6 @@
 {
   "name": "@opensocket/core-js",
-  "version": "1.4.0-experimental",
+  "version": "1.5.0-experimental",
   "description": "OpenSocket Core For JavaScript",
   "files": [
     "dist"
