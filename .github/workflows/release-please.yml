@@ -68,6 +68,9 @@ jobs:
     needs: release-please
     runs-on: ubuntu-latest
     if: ${{ needs.release-please.outputs.release_created }}
+    strategy:
+      matrix:
+        release: ${{ fromJSON(needs.release-please.outputs.paths_released) }}
     steps:
       # The logic below handles the npm publication:
       - name: Checkout Repository
@@ -87,10 +90,11 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
           cache: 'npm'
 
-      - name: Build Packages
-        run: |
-          npm i
-          npm run build
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Build Package
+        run: npm run build --workspace=${{ matrix.release }}
 
       # need to publish all unpublished versions to NPM here
       # Our scripts only publish versions that do not already exist.
