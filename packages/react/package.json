@@ -1,6 +1,6 @@
 {
   "name": "@opensocket/react",
-  "version": "0.0.15-experimental",
+  "version": "0.0.16-experimental",
   "description": "OpenSocket SDK For React",
   "files": [
     "dist"
@@ -51,6 +51,6 @@
     "react": "^18.2.0"
   },
   "devDependencies": {
-    "@opensocket/core-js": "*"
+    "@opensocket/core-js": "1.5.8-experimental"
   }
 }
