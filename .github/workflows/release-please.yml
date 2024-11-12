@@ -99,7 +99,7 @@ jobs:
       # need to publish all unpublished versions to NPM here
       # Our scripts only publish versions that do not already exist.
       - name: Publish to NPM
-        run: npm run publish --workspace=${{ matrix.release }}
+        run: npm run publish-if-not-exist --workspace=${{ matrix.release }}
         env:
           NPM_TOKEN: ${{secrets.NPM_TOKEN}}
 
