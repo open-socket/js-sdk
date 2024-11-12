@@ -9,7 +9,7 @@
     "lint:fix": "npm run lint:fix --workspace=packages/core --workspace=packages/react",
     "clean": "shx rm -rf ./dist",
     "build": "npm run build --workspace=packages/core --workspace=packages/react",
-    "publish": "npm run publish --workspace=packages/core --workspace=packages/react",
+    "publish:all": "npm run publish --workspace=packages/core --workspace=packages/react",
     "docs": "typedoc",
     "core-version": "npm run version --workspace=packages/core",
     "update-core-peers": "export OPENSOCKET_CORE_VERSION=$(npm run --silent core-version) && npm run update-core-peer --workspace=packages/react"
