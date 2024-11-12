@@ -4,6 +4,18 @@
 
 
 
+## [0.0.19-experimental](https://github.com/open-socket/js-sdk/compare/react-v0.0.18-experimental...react-v0.0.19-experimental) (2024-11-12)
+
+
+### 🐛 Bug Fixes
+
+* testing release -- attempt 3 ([1bb8ebe](https://github.com/open-socket/js-sdk/commit/1bb8ebe6c37592331336314c70c6db5cf53416c2))
+
+
+### 🧹 Chore
+
+* release main ([49fe368](https://github.com/open-socket/js-sdk/commit/49fe3684770df76d89a3f2270ce6f7241aade03d))
+
 ## [0.0.18-experimental](https://github.com/open-socket/js-sdk/compare/react-v0.0.17-experimental...react-v0.0.18-experimental) (2024-11-10)
 
 
