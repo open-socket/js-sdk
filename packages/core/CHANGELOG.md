@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.5.9-experimental](https://github.com/open-socket/js-sdk/compare/core-js-v1.5.8-experimental...core-js-v1.5.9-experimental) (2024-11-12)
+
+
+### 🐛 Bug Fixes
+
+* testing release -- attempt 2 ([60e831f](https://github.com/open-socket/js-sdk/commit/60e831fe9cf22bdd004d7c220af1209f93588611))
+
 ## [1.5.8-experimental](https://github.com/open-socket/js-sdk/compare/core-js-v1.5.7-experimental...core-js-v1.5.8-experimental) (2024-11-10)
 
 
