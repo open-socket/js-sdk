@@ -4,6 +4,17 @@
 
 
 
+## [0.0.21-experimental](https://github.com/open-socket/js-sdk/compare/react-v0.0.20-experimental...react@v0.0.21-experimental) (2024-11-13)
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * devDependencies
+    * @opensocket/core-js bumped from 1.5.8-experimental to 1.5.17-experimental
+  * peerDependencies
+    * @opensocket/core-js bumped from * to 1.5.17-experimental
+
 ## [0.0.20-experimental](https://github.com/open-socket/js-sdk/compare/react-v0.0.19-experimental...react-v0.0.20-experimental) (2024-11-13)
 
 
