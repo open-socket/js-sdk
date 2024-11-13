@@ -3,6 +3,8 @@
   "tag-separator": "@",
   "separate-pull-requests": true,
   "plugins": ["node-workspace"],
+  "include-contributors": true,
+  "changelog-type": "github",
   "packages": {
     "packages/core": {
       "release-type": "node",
@@ -74,6 +76,5 @@
       "hidden": true,
       "section": "🧪 Tests"
     }
-  ],
-  "include-contributors": true
+  ]
 }
