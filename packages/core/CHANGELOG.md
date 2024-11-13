@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.5.12-experimental](https://github.com/open-socket/js-sdk/compare/core-js-v1.5.11-experimental...core-js-v1.5.12-experimental) (2024-11-13)
+
+
+### 🐛 Bug Fixes
+
+* update git action to use googleapis/release-please-action ([bcb9a04](https://github.com/open-socket/js-sdk/commit/bcb9a049764c465786774a2bb044cecd117fbfa9))
+* update git action to use googleapis/release-please-action ([c97bf76](https://github.com/open-socket/js-sdk/commit/c97bf76db9bacee0f7a58272b82deef6637c389c))
+
+
+### 🧹 Chore
+
+* **main:** release react 0.0.19-experimental ([8332a4b](https://github.com/open-socket/js-sdk/commit/8332a4b8c7849976856ad1b330c41b2d23cc6d5d))
+
 ## [1.5.11-experimental](https://github.com/open-socket/js-sdk/compare/core-js-v1.5.10-experimental...core-js-v1.5.11-experimental) (2024-11-12)
 
 
