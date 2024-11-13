@@ -29,7 +29,7 @@ jobs:
   sbom:
     needs: release-please
     runs-on: ubuntu-latest
-    if: ${{ fromJSON(needs.release-please.outputs.paths_released)[0] != null }}
+    if: ${{ needs.release-please.outputs.release_created && fromJSON(needs.release-please.outputs.paths_released)[0] != null }}
     # Continues with the release process even if SBOM generation fails.
     continue-on-error: true
     strategy:
