@@ -74,5 +74,6 @@
       "hidden": true,
       "section": "🧪 Tests"
     }
-  ]
+  ],
+  "include-contributors": true
 }

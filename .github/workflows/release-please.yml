@@ -20,8 +20,9 @@ jobs:
         with:
           #   command: manifest
           token: ${{secrets.RELEASE_PLEASE_ACTION_TOKEN}}
-        #   default-branch: main
-        #   signoff: 'Shujaat Ali <16950646+shujieali@users.noreply.github.com>' #to be updated
+          #   default-branch: main
+          #   signoff: 'Shujaat Ali <16950646+shujieali@users.noreply.github.com>' #to be updated
+          include-contributors: true
     outputs:
       releases_created: ${{ steps.release.outputs.releases_created}}
       all: ${{ toJSON(steps.release.outputs) }}
