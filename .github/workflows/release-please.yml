@@ -24,6 +24,7 @@ jobs:
         #   signoff: 'Shujaat Ali <16950646+shujieali@users.noreply.github.com>' #to be updated
     outputs:
       releases_created: ${{ steps.release.outputs.releases_created}}
+      all: ${{ toJSON(steps.release.outputs) }}
       paths_released: ${{ steps.release.outputs.paths_released }}
 
   sbom:
@@ -36,7 +37,7 @@ jobs:
       matrix:
         release: ${{ fromJSON(needs.release-please.outputs.paths_released) }}
     env:
-      TAG: ${{ fromJSON(needs.release-please.outputs.paths_released)[format('{0}--tag_name', matrix.release)] }}
+      TAG: ${{ fromJSON(needs.release-please.outputs.all)[format('{0}--tag_name', matrix.release)] }}
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
