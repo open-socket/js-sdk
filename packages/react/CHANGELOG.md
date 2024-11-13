@@ -4,6 +4,31 @@
 
 
 
+## 0.0.21-experimental (2024-11-13)
+
+## What's Changed
+* chore: release main by @shujieali in https://github.com/open-socket/js-sdk/pull/135
+* chore(main): release core-js 1.5.14-experimental by @shujieali in https://github.com/open-socket/js-sdk/pull/137
+* chore(main): release core-js 1.5.15-experimental by @shujieali in https://github.com/open-socket/js-sdk/pull/139
+* chore(main): release core-js 1.5.16-experimental by @shujieali in https://github.com/open-socket/js-sdk/pull/140
+* chore(main): release core-js 1.5.17-experimental by @shujieali in https://github.com/open-socket/js-sdk/pull/141
+* chore(main): release core-js 1.5.18-experimental by @shujieali in https://github.com/open-socket/js-sdk/pull/143
+* chore(main): release core-js 1.5.19-experimental by @shujieali in https://github.com/open-socket/js-sdk/pull/144
+* chore(main): release core-js 1.5.20-experimental by @shujieali in https://github.com/open-socket/js-sdk/pull/145
+* chore(main): release core-js 1.5.21-experimental by @shujieali in https://github.com/open-socket/js-sdk/pull/146
+
+
+**Full Changelog**: https://github.com/open-socket/js-sdk/compare/react-v0.0.20-experimental...react@v0.0.21-experimental
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * devDependencies
+    * @opensocket/core-js bumped from 1.5.8-experimental to 1.5.22-experimental
+  * peerDependencies
+    * @opensocket/core-js bumped from * to 1.5.22-experimental
+
 ## [0.0.20-experimental](https://github.com/open-socket/js-sdk/compare/react-v0.0.19-experimental...react-v0.0.20-experimental) (2024-11-13)
 
 
