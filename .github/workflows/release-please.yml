@@ -23,13 +23,13 @@ jobs:
         #   default-branch: main
         #   signoff: 'Shujaat Ali <16950646+shujieali@users.noreply.github.com>' #to be updated
     outputs:
-      releases_created: ${{ steps.release.outputs.releases_created }}
+      releases_created: ${{ steps.release.outputs.releases_created}}
       paths_released: ${{ steps.release.outputs.paths_released }}
 
   sbom:
     needs: release-please
     runs-on: ubuntu-latest
-    if: ${{ needs.release-please.outputs.releases_created && fromJSON(needs.release-please.outputs.paths_released)[0] != null }}
+    if: ${{ needs.release-please.outputs.releases_created == 'true' && fromJSON(needs.release-please.outputs.paths_released)[0] != null }}
     # Continues with the release process even if SBOM generation fails.
     continue-on-error: true
     strategy:
@@ -66,7 +66,7 @@ jobs:
   npm-release:
     needs: release-please
     runs-on: ubuntu-latest
-    if: ${{ needs.release-please.outputs.releases_created }}
+    if: ${{ needs.release-please.outputs.releases_created == 'true'}}
     strategy:
       matrix:
         release: ${{ fromJSON(needs.release-please.outputs.paths_released) }}
