@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.5.22-experimental (2024-11-13)
+
+**Full Changelog**: https://github.com/open-socket/js-sdk/compare/core-js@v1.5.21-experimental...core-js@v1.5.22-experimental
+
 ## [1.5.21-experimental](https://github.com/open-socket/js-sdk/compare/core-js@v1.5.20-experimental...core-js@v1.5.21-experimental) (2024-11-13)
 
 
