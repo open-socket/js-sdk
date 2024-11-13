@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.5.15-experimental](https://github.com/open-socket/js-sdk/compare/core-js-v1.5.14-experimental...core-js-v1.5.15-experimental) (2024-11-13)
+
+
+### 🐛 Bug Fixes
+
+* update git action to use googleapis/release-please-action ([5ee0d12](https://github.com/open-socket/js-sdk/commit/5ee0d125035a07afdec76384e1b0bb7b4cafd695))
+
 ## [1.5.14-experimental](https://github.com/open-socket/js-sdk/compare/core-js-v1.5.13-experimental...core-js-v1.5.14-experimental) (2024-11-13)
 
 
