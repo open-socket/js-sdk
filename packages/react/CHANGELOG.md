@@ -4,6 +4,14 @@
 
 
 
+## [0.0.20-experimental](https://github.com/open-socket/js-sdk/compare/react-v0.0.19-experimental...react-v0.0.20-experimental) (2024-11-13)
+
+
+### 🧹 Chore
+
+* **main:** release react 0.0.19-experimental ([8332a4b](https://github.com/open-socket/js-sdk/commit/8332a4b8c7849976856ad1b330c41b2d23cc6d5d))
+* release main ([99afb8e](https://github.com/open-socket/js-sdk/commit/99afb8e2a0d489166709833919e7b323ff2eebb9))
+
 ## [0.0.19-experimental](https://github.com/open-socket/js-sdk/compare/react-v0.0.18-experimental...react-v0.0.19-experimental) (2024-11-12)
 
 
