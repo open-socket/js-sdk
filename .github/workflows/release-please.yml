@@ -16,9 +16,9 @@ jobs:
     # Release-please creates a PR that tracks all changes
     steps:
       - uses: googleapis/release-please-action@v4
-        # with:
-        #   command: manifest
-        #   token: ${{secrets.RELEASE_PLEASE_ACTION_TOKEN}}
+        with:
+          #   command: manifest
+          token: ${{secrets.RELEASE_PLEASE_ACTION_TOKEN}}
         #   default-branch: main
         #   signoff: 'Shujaat Ali <16950646+shujieali@users.noreply.github.com>' #to be updated
     outputs:
